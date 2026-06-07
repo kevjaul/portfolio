@@ -8,7 +8,7 @@ function Footer() {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 150);
     };
 
     window.addEventListener("scroll", onScroll);
@@ -22,14 +22,14 @@ function Footer() {
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -40 }}
-          className="fixed bottom-8 left-8 z-50 flex gap-4"
+          className="fixed bottom-0 left-8 z-50 flex gap-4 backdrop-blur-md"
         >
-          <FadeIn direction="up">
+          <FadeIn direction="up" className="translate-y-[-20px]">
             <div className="my-2 w-70 flex flex-row justify-strech">
-              <button className="p-2 highlight hover:bg-emerald-400 w-1/3 text-center border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(101,255,177,0.6)]">
+              <button className="p-2 highlight hover:bg-emerald-400 w-1/3 text-center border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(101,255,177,0.6)] cursor-pointer">
                 {footerButtons[0]}
               </button>
-              <button className="p-2 highlight hover:bg-emerald-400 w-1/2 text-center border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(101,255,177,0.6)]">
+              <button className="p-2 highlight hover:bg-emerald-400 w-1/2 text-center border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(101,255,177,0.6)] cursor-pointer">
                 {footerButtons[1]}
               </button>
             </div>
@@ -40,7 +40,7 @@ function Footer() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 text-white/80"
+          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 text-white/80 backdrop-blur-md rounded-t-full p-2"
         >
           <div className="w-6 h-10 rounded-full border-2 border-white flex justify-center shadow-[0_0_10px_rgba(101,255,177,0.6)]">
             <div className="w-1 h-2 bg-white rounded-full mt-2 animate-bounce shadow-[0_0_10px_rgba(101,255,177,0.6)]" />

@@ -34,11 +34,11 @@ function PhotoCircles() {
   }, []);
   return (
     <>
-      <div className="relative flex items-center md:justify-end justify-center md:w-1/2">
-        <div className="relative md:translate-x-1/5">
+      <div className="relative flex items-center lg:justify-end justify-center lg:w-1/2">
+        <div className="relative lg:translate-x-1/5">
           <div
             ref={circleRef}
-            className="relative lg:w-200 lg:h-200 md:w-150 md:h-150 w-80 h-80 rounded-full overflow-hidden flex items-center justify-center"
+            className="relative xl:w-200 xl:h-200 lg:w-150 lg:h-150 w-80 h-80 rounded-full overflow-hidden flex items-center justify-center"
           >
             <div className="absolute inset-0 pointer-events-none">
               <div className="w-full h-full border-2 border-white rounded-full bg-[radial-gradient(circle_at_center,_#65ffb1f2_20%,_transparent_60%)] animate-[revealUp_1s_ease-out]" />
@@ -46,7 +46,7 @@ function PhotoCircles() {
             </div>
             <FadeIn direction="down">
               <img
-                className="object-cover lg:-translate-y-[-6vh] lg:scale-[1.6] md:scale-[1.1] scale-[0.8] h-10vh transition-all duration-800"
+                className="object-cover xl:-translate-y-[-6vh] xl:scale-[1.6] lg:scale-[1.1] scale-[0.8] h-10vh transition-all duration-800"
                 src="/KJ-detouree.svg"
                 alt=""
               />
@@ -69,7 +69,7 @@ function PhotoCircles() {
                   <motion.img
                     key={tech.name}
                     src={tech.icon}
-                    className="lg:w-30 lg:h-30 md:w-20 md:h-20 w-13 h-13 absolute pointer-events-none backdrop-blur-md rounded-full p-2"
+                    className="xl:w-30 xl:h-30 lg:w-20 lg:h-20 w-13 h-13 absolute pointer-events-none backdrop-blur-md rounded-full p-2"
                     initial={{
                       opacity: 0,
                       scale: 0,

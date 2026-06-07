@@ -7,10 +7,12 @@ interface Props {
 function Card({ children, cardTitle = "", cardFooter, className }: Props) {
   return (
     <div className={className}>
-      <div className="flex h-auto flex-col rounded-2xl border border-white/10 bg-white/5 mx-10 mt-3 max-w-[650px] max-h-[450px]">
+      <div className="flex h-auto flex-col rounded-2xl border border-white/10 bg-white/5 mx-10 mt-3 lg:max-w-[650px] w-fit max-h-[450px]">
         {cardTitle && (
           <div className="border-b border-white/50 p-5">
-            <h2 className="text-3xl font-semibold text-white">{cardTitle}</h2>
+            <h2 className="lg:text-3xl text-xl font-semibold text-white">
+              {cardTitle}
+            </h2>
           </div>
         )}
 

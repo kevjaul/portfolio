@@ -8,7 +8,7 @@ function MainContent() {
     <>
       <FadeIn direction="up">
         <div className="flex flex-col items-center mt-[100px] mb-15">
-          <p className="lg:text-3xl md:text-2xl text-xl">
+          <p className="xl:text-3xl lg:text-2xl text-xl">
             Hey, I'm{" "}
             <TypingText
               speed={100}
@@ -17,11 +17,11 @@ function MainContent() {
               text={["Kévin", "your future collaborator"]}
             />
           </p>
-          <p className="lg:text-7xl md:text-6xl text-5xl font-bold text-center">
+          <p className="xl:text-7xl lg:text-6xl text-5xl font-bold text-center">
             Junior <span className="highlight">Fullstack Developer</span>
           </p>
-          <div className="lg:w-dvh md:w-lg w-xl text-center lg:pb-7 pb-3 pt-2 mx-3 border-b-white border-b">
-            <p className="lg:text-xl md:text-base text-sm">
+          <div className="xl:w-dvh lg:w-lg w-xl text-center xl:pb-7 pb-3 pt-2 mx-3 border-b-white border-b">
+            <p className="xl:text-xl lg:text-base text-sm">
               Passionate about building web applications with modern
               technologies. I speciliaze in
               <span className="font-bold">
@@ -32,8 +32,8 @@ function MainContent() {
           </div>
         </div>
       </FadeIn>
-      <div className="flex flex-col-reverse md:flex-row">
-        <FadeIn direction="left" className="md:w-1/2 h-full self-start">
+      <div className="flex flex-col-reverse lg:flex-row">
+        <FadeIn direction="left" className="lg:w-1/2 h-full w-fullself-start">
           <Card
             cardTitle="About me"
             cardFooter={
