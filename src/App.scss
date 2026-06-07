@@ -3,10 +3,25 @@ $enable-gradients: true;
   min-height: 100vh;
 }
 
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 html,
 body {
   margin: 0;
   background: linear-gradient(120deg, #b165ff 20%, #ffb165 85%);
+  background-size: 200% 200%;
+  overflow-x: hidden;
+  animation: gradientMove 15s ease infinite;
   font-family: "Exo 2", sans-serif !important;
 }
 
