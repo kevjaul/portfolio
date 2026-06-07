@@ -1,6 +1,5 @@
 import FadeIn from "./animations/FadeIn";
 import TypingText from "./animations/TypingText";
-import "./MainContent.scss";
 
 function MainContent() {
   return (
@@ -34,7 +33,7 @@ function MainContent() {
         </div>
       </FadeIn>
       <div>
-        <div className="relative flex items-center md:justify-end md:overflow-hidden justify-center lg:overflow-visible">
+        <div className="relative flex items-center md:justify-end md:overflow-hidden justify-center">
           <div className="relative md:translate-x-1/5">
             <div className="lg:w-200 lg:h-200 md:w-150 md:h-150 w-80 h-80 rounded-full border-white border-2 relative overflow-hidden transition-all duration-800">
               <div className="absolute md:inset-10 inset-7 rounded-full border-white/80 border-2 bg-[radial-gradient(circle_at_center,_#65ffb1f2_20%,_transparent_60%)] overflow-hidden transition-all duration-800" />
