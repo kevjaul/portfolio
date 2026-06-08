@@ -20,8 +20,8 @@ function HomeSection() {
           <p className="xl:text-7xl lg:text-6xl text-5xl font-bold text-center">
             Junior <span className="highlight">Fullstack Developer</span>
           </p>
-          <div className="xl:w-dvh lg:w-lg w-xl text-center xl:pb-7 pb-3 pt-2 mx-3 border-b-white border-b">
-            <p className="xl:text-xl lg:text-base text-sm">
+          <div className="xl:w-dvh md:w-2xl w-fit text-center xl:pb-7 pb-3 pt-2 mx-3 border-b-white border-b">
+            <p className="xl:text-xl md:text-base text-sm">
               Passionate about building web applications with modern
               technologies. I speciliaze in{" "}
               <span className="font-bold">
@@ -33,7 +33,10 @@ function HomeSection() {
         </div>
       </FadeIn>
       <div className="flex flex-col-reverse lg:flex-row">
-        <FadeIn direction="left" className="lg:w-1/2 h-full w-fullself-start">
+        <FadeIn
+          direction="left"
+          className="lg:w-1/2 h-full w-fullself-start translate-x-[-20px]"
+        >
           <Card
             cardTitle="About me"
             cardFooter={
@@ -59,7 +62,7 @@ function HomeSection() {
             </span>{" "}
             to better understand how modern software systems work as a whole.
           </Card>
-          <div className="grid grid-cols-3 gap-5 mt-15">
+          <div className="grid xl:grid-cols-3 grid-cols-2 md:gap-5 gap-3 mt-15 mx-10">
             <Card
               cardTitle="6 months"
               cardSubTitle="Of fullstack experience"
@@ -83,6 +86,7 @@ function HomeSection() {
             <Card
               cardTitle="Dual Master's-Level Degrees"
               cardSubTitle="Computer Science & Cybersecurity"
+              className="col-span-2 xl:col-span-1"
             >
               Strong academic foundation combining software engineering
               principles with cybersecurity, enabling me to build reliable and

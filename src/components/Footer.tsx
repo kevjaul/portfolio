@@ -4,11 +4,15 @@ import FadeIn from "./animations/FadeIn";
 
 function Footer() {
   const [scrolled, setScrolled] = useState(false);
+  const [hasBeenScrolled, setHasBeenScrolled] = useState(false);
   const footerButtons = ["CV", "Contact me !"];
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 150);
+      if (window.scrollY > 150) {
+        setHasBeenScrolled(true);
+      }
     };
 
     window.addEventListener("scroll", onScroll);
@@ -36,19 +40,21 @@ function Footer() {
           </FadeIn>
         </motion.div>
       ) : (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 text-white/80 backdrop-blur-md rounded-t-full p-2"
-        >
-          <div className="w-6 h-10 rounded-full border-2 border-white flex justify-center shadow-[0_0_10px_rgba(101,255,177,0.6)]">
-            <div className="w-1 h-2 bg-white rounded-full mt-2 animate-bounce shadow-[0_0_10px_rgba(101,255,177,0.6)]" />
-          </div>
-          <span className="text-sm tracking-widest uppercase">
-            Scroll to explore
-          </span>
-        </motion.div>
+        !hasBeenScrolled && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 text-white/80 backdrop-blur-md rounded-t-full p-2"
+          >
+            <div className="w-6 h-10 rounded-full border-2 border-white flex justify-center shadow-[0_0_10px_rgba(101,255,177,0.6)]">
+              <div className="w-1 h-2 bg-white rounded-full mt-2 animate-bounce shadow-[0_0_10px_rgba(101,255,177,0.6)]" />
+            </div>
+            <span className="text-sm tracking-widest uppercase">
+              Scroll to explore
+            </span>
+          </motion.div>
+        )
       )}
     </footer>
   );
