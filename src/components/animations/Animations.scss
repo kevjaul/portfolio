@@ -1,0 +1,14 @@
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes revealUp {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}

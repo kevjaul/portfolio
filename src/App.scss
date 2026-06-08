@@ -1,0 +1,67 @@
+$enable-gradients: true;
+#root {
+  min-height: 100vh;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    background: linear-gradient(120deg, #b165ff 20%, #ffb165 85%);
+    background-size: 200% 200%;
+    overflow-x: hidden;
+    animation: gradientMove 15s ease infinite;
+    font-family: "Exo 2", sans-serif !important;
+    scroll-behavior: smooth;
+  }
+
+  p {
+    margin: 0;
+    color: #fff;
+  }
+}
+
+@layer components {
+  .highlight {
+    color: white;
+    position: relative;
+    text-shadow: 0 0 4px rgba(101, 255, 177, 0.95);
+  }
+
+  .app-btn {
+    padding: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition:
+      transform 350ms ease-in-out,
+      background-color 350ms ease-in-out,
+      border-radius 350ms ease-in-out;
+
+    @media (min-width: 1024px) {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      transform: scale(1.15);
+      border-radius: 0.375rem;
+      background-color: rgb(52, 211, 153);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
