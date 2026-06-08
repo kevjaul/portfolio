@@ -33,7 +33,10 @@ function HomeSection() {
         </div>
       </FadeIn>
       <div className="flex flex-col-reverse lg:flex-row">
-        <FadeIn direction="left" className="lg:w-1/2 h-full w-fullself-start">
+        <FadeIn
+          direction="left"
+          className="lg:w-1/2 h-full w-fullself-start translate-x-[-20px]"
+        >
           <Card
             cardTitle="About me"
             cardFooter={
@@ -59,7 +62,7 @@ function HomeSection() {
             </span>{" "}
             to better understand how modern software systems work as a whole.
           </Card>
-          <div className="grid grid-cols-3 gap-5 mt-15">
+          <div className="grid xl:grid-cols-3 grid-cols-2 md:gap-5 gap-3 mt-15 mx-10">
             <Card
               cardTitle="6 months"
               cardSubTitle="Of fullstack experience"
@@ -83,6 +86,7 @@ function HomeSection() {
             <Card
               cardTitle="Dual Master's-Level Degrees"
               cardSubTitle="Computer Science & Cybersecurity"
+              className="col-span-2 xl:col-span-1"
             >
               Strong academic foundation combining software engineering
               principles with cybersecurity, enabling me to build reliable and

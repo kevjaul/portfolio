@@ -29,7 +29,9 @@ function Card({
           {children}
         </div>
         {cardFooter && (
-          <div className="border-t border-white/10 px-5 py-2">{cardFooter}</div>
+          <div className="border-t border-white/10 md:px-5 py-2">
+            {cardFooter}
+          </div>
         )}
       </div>
     </div>
