@@ -26,10 +26,10 @@ function Footer() {
         >
           <FadeIn direction="up" className="translate-y-[-20px]">
             <div className="my-2 w-70 flex flex-row justify-strech">
-              <button className="p-2 highlight hover:bg-emerald-400 w-1/3 text-center border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(101,255,177,0.6)] cursor-pointer">
+              <button className="app-btn highlight w-1/3 border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(101,255,177,0.6)]">
                 {footerButtons[0]}
               </button>
-              <button className="p-2 highlight hover:bg-emerald-400 w-1/2 text-center border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(101,255,177,0.6)] cursor-pointer">
+              <button className="app-btn highlight w-1/2 border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(101,255,177,0.6)]">
                 {footerButtons[1]}
               </button>
             </div>

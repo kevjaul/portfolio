@@ -20,7 +20,7 @@ function Card({
             <h2 className="lg:text-3xl text-xl font-semibold text-white">
               {cardTitle}
               {cardSubTitle && (
-                <p className="text-sm text-gray-400">{cardSubTitle}</p>
+                <p className="text-sm text-white/60">{cardSubTitle}</p>
               )}
             </h2>
           </div>
