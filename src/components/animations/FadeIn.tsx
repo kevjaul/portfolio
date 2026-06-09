@@ -3,21 +3,27 @@ import { motion } from "framer-motion";
 interface Props {
   children: React.ReactNode;
   direction: "up" | "down" | "left" | "right";
+  slideLenght?: number;
   className?: string;
 }
 
-function FadeIn({ children, direction, className = "" }: Props) {
+function FadeIn({
+  children,
+  direction,
+  slideLenght = 20,
+  className = "",
+}: Props) {
   const variants = {
-    up: { opacity: 1, x: 0, y: 20 },
-    down: { opacity: 1, x: 0, y: -20 },
-    left: { opacity: 1, x: 20, y: 0 },
-    right: { opacity: 1, x: 20, y: 0 },
+    down: { opacity: 0, x: 0, y: slideLenght },
+    up: { opacity: 0, x: 0, y: -slideLenght },
+    right: { opacity: 0, x: slideLenght, y: 0 },
+    left: { opacity: 0, x: -slideLenght, y: 0 },
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 0, y: 0 }}
-      whileInView={variants[direction]}
+      initial={variants[direction]}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className={className}

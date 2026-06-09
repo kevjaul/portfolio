@@ -28,7 +28,7 @@ function Footer() {
           exit={{ opacity: 0, x: -40 }}
           className="fixed bottom-0 left-8 z-50 flex gap-4 backdrop-blur-md"
         >
-          <FadeIn direction="up" className="translate-y-[-20px]">
+          <FadeIn direction="up">
             <div className="my-2 w-70 flex flex-row justify-strech">
               <button className="app-btn highlight w-1/3 border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(101,255,177,0.6)]">
                 {footerButtons[0]}

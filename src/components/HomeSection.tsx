@@ -4,6 +4,14 @@ import Card from "./Card";
 import PhotoCircles from "./PhotoCircles";
 
 function HomeSection() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    const offset = element ? 100 : 0;
+    const y =
+      (element?.getBoundingClientRect()?.top || 0) + window.scrollY - offset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
   return (
     <section id="home">
       <FadeIn direction="up">
@@ -33,10 +41,7 @@ function HomeSection() {
         </div>
       </FadeIn>
       <div className="flex flex-col-reverse lg:flex-row">
-        <FadeIn
-          direction="left"
-          className="lg:w-1/2 h-full w-fullself-start translate-x-[-20px]"
-        >
+        <FadeIn direction="left" className="lg:w-1/2 h-full w-full self-start">
           <Card
             cardTitle="About me"
             cardFooter={
@@ -74,7 +79,10 @@ function HomeSection() {
               cardTitle="1 Personal Project"
               cardFooter={
                 <div className="px-6 py-2 flex justify-end gap-3">
-                  <button className="border-2 border-white rounded shadow-[0_0_10px_rgba(101,255,177,0.6)] text-white app-btn">
+                  <button
+                    className="border-2 border-white rounded shadow-[0_0_10px_rgba(101,255,177,0.6)] text-white app-btn"
+                    onClick={() => scrollToSection("token-api-java")}
+                  >
                     Check it out !
                   </button>
                 </div>
