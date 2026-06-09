@@ -22,7 +22,7 @@ function Card({
 }: Props) {
   return (
     <div
-      className={`${className} lg:max-w-[650px] max-h-[450px] flex h-auto flex-col rounded-2xl border border-white/10 bg-white/5`}
+      className={`${className} lg:max-w-[650px] flex h-auto flex-col rounded-2xl border border-white/10 bg-white/5`}
       id={id}
     >
       <div className="border-b border-white/50 px-5 py-3">
@@ -33,20 +33,24 @@ function Card({
               alt="logo"
               className="w-full h-full object-cover rounded-lg"
             />
-            <a
-              className="absolute z-20 top-0 right-0 bg-black/15 w-full h-full px-2 py-1 rounded-lg border-2 border-white text-white font-bold flex justify-end items-end lg:text-3xl md:text-2xl sm:text-3xl text-2xl"
-              href={ctaRedirect}
-              target="_blank"
-            >
-              {ctaMessage}
-            </a>
+            {ctaRedirect && (
+              <a
+                className="absolute z-20 top-0 right-0 bg-black/15 w-full h-full px-2 py-1 rounded-lg border-2 border-white text-white font-bold flex justify-end items-end lg:text-3xl md:text-2xl sm:text-3xl text-2xl"
+                href={ctaRedirect}
+                target="_blank"
+              >
+                {ctaMessage}
+              </a>
+            )}
           </div>
         )}
         {cardTitle && (
           <h2 className="lg:text-3xl text-xl font-semibold text-white">
             {cardTitle}
             {cardSubTitle && (
-              <p className="text-sm text-white/60">{cardSubTitle}</p>
+              <div className="text-sm text-white/60 max-h-[60px]">
+                {cardSubTitle}
+              </div>
             )}
           </h2>
         )}

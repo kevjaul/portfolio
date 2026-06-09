@@ -7,9 +7,15 @@ function PhotoCircles() {
 
   const techs = [
     { name: "Java", icon: "./logos/java.svg" },
-    { name: "Git", icon: "./logos/git.svg" },
+    {
+      name: "Git",
+      icon: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg",
+    },
     { name: "React", icon: "./logos/react.svg" },
-    { name: "SpringBoot", icon: "./logos/spring-logo.png" },
+    {
+      name: "SpringBoot",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg",
+    },
   ];
   const circleRef = useRef<HTMLDivElement>(null);
   const [radius, setRadius] = useState(0);

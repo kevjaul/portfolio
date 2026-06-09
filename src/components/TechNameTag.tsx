@@ -6,7 +6,7 @@ interface Props {
 
 function TechNameTag({ techLogo, subtitle = "", children }: Props) {
   return (
-    <div className="flex items-center border-2 border-white rounded shadow-[0_0_10px_rgba(101,255,177,0.6)] text-white overflow-hidden">
+    <div className="flex items-center border-2 border-white rounded shadow-[0_0_10px_rgba(101,255,177,0.6)] text-white overflow-hidden min-w-fit max-w-fit">
       <img
         src={techLogo}
         alt={`${children} logo`}

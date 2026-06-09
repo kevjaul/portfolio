@@ -1,37 +1,106 @@
-import { useRef } from "react";
-
 import FadeIn from "./animations/FadeIn";
 import Card from "./Card";
-import TechNameTag from "./TechNameTag";
+import TechCarousel from "./TechCarousel";
 
 function SectionProjects() {
   type Techs = { name: string; subtitle: string; iconUrl: string };
-  const carouselRef = useRef<HTMLDivElement>(null);
   const mainProjectTechs: Techs[] = [
     {
       name: "Spring",
       subtitle: "Boot/Security",
-      iconUrl: "logos/spring-logo.png",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg",
     },
     { name: "JUnit", subtitle: "", iconUrl: "logos/junit.svg" },
-    { name: "Postgre", subtitle: "", iconUrl: "logos/postgres.svg" },
-    { name: "AWS", subtitle: "", iconUrl: "logos/aws.svg" },
-    { name: "Git", subtitle: "", iconUrl: "logos/git.svg" },
+    {
+      name: "Postgre",
+      subtitle: "",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+    },
+    {
+      name: "AWS",
+      subtitle: "",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+    },
+    {
+      name: "Git",
+      subtitle: "",
+      iconUrl: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg",
+    },
   ];
-  const scrollLeft = () => {
-    carouselRef.current?.scrollBy({
-      left: -100,
-      behavior: "smooth",
-    });
-  };
 
-  const scrollRight = () => {
-    carouselRef.current?.scrollBy({
-      left: 100,
-      behavior: "smooth",
-    });
-  };
+  const crmProjectTechs: Techs[] = [
+    {
+      name: "PHP",
+      subtitle: "",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
+    },
+    {
+      name: "Javascript",
+      subtitle: "",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
+    },
+    {
+      name: "Bash",
+      subtitle: "",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/4/4b/Bash_Logo_Colored.svg",
+    },
+    {
+      name: "MySQL",
+      subtitle: "",
+      iconUrl: "https://icon.icepanel.io/Technology/svg/MySQL.svg",
+    },
+    {
+      name: "Gitlab",
+      subtitle: "Runners & Jobs",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg",
+    },
+  ];
 
+  const metricsProjectTechs: Techs[] = [
+    {
+      name: "Javascript",
+      subtitle: "",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
+    },
+    {
+      name: "Kubernetes",
+      subtitle: "",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg",
+    },
+    {
+      name: "Grafana",
+      subtitle: "",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/3/3b/Grafana_icon.svg",
+    },
+  ];
+  const hvacProjectTechs: Techs[] = [
+    {
+      name: "Python",
+      subtitle: "",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+    },
+    {
+      name: "Cryptography",
+      subtitle: "RSA",
+      iconUrl: "/logos/cryptography.png",
+    },
+    {
+      name: "Architecture",
+      subtitle: "Client/Server",
+      iconUrl: "/logos/blueprint.png",
+    },
+  ];
   return (
     <section id="projects">
       <FadeIn direction="left" slideLenght={140}>
@@ -45,52 +114,7 @@ function SectionProjects() {
             </h3>
             <Card
               cardTitle="Application Credit Management API"
-              cardSubTitle={
-                <>
-                  <div className="py-2 justify-start gap-3 h-15 w-full flex-wrap h-auto sm:flex hidden">
-                    {mainProjectTechs.map((tech) => (
-                      <TechNameTag
-                        key={tech.name}
-                        techLogo={tech.iconUrl}
-                        subtitle={tech.subtitle}
-                      >
-                        {tech.name}
-                      </TechNameTag>
-                    ))}
-                  </div>
-                  <div className="sm:hidden relative">
-                    <button
-                      onClick={scrollLeft}
-                      className="absolute left-0 top-1/2 -translate-y-1/2 z-10"
-                    >
-                      ◀
-                    </button>
-
-                    <div
-                      ref={carouselRef}
-                      className="flex gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-none px-8 py-2"
-                    >
-                      {mainProjectTechs.map((tech) => (
-                        <div key={tech.name} className="snap-start shrink-0">
-                          <TechNameTag
-                            techLogo={tech.iconUrl}
-                            subtitle={tech.subtitle}
-                          >
-                            {tech.name}
-                          </TechNameTag>
-                        </div>
-                      ))}
-                    </div>
-
-                    <button
-                      onClick={scrollRight}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 z-10"
-                    >
-                      ▶
-                    </button>
-                  </div>
-                </>
-              }
+              cardSubTitle={<TechCarousel techs={mainProjectTechs} />}
               cardImage="token-api-java.png"
               ctaRedirect="http://token-api-java-env.eba-cyz3fx3h.eu-west-1.elasticbeanstalk.com/swagger-ui/index.html"
               ctaMessage={
@@ -112,8 +136,30 @@ function SectionProjects() {
               making it suitable for real-world cloud environments.
             </Card>
           </div>
-          <Card className="border"> toto</Card>
-          <Card className="border border-red-800 ">toto</Card>
+          <Card
+            cardTitle="CRM Legacy System Enhancement (Internship)"
+            cardSubTitle={<TechCarousel techs={crmProjectTechs} />}
+            cardImage="token-api-java.png"
+            className="md:col-span-1 col-span-2"
+          >
+            toto
+          </Card>
+          <Card
+            cardTitle="HVAC Kubernetes monitoring"
+            cardSubTitle={<TechCarousel techs={metricsProjectTechs} />}
+            cardImage="token-api-java.png"
+            className="md:col-span-1 col-span-2"
+          >
+            toto
+          </Card>
+          <Card
+            cardTitle="Secure File Vault System"
+            cardSubTitle={<TechCarousel techs={hvacProjectTechs} />}
+            cardImage="token-api-java.png"
+            className="md:col-span-1 col-span-2"
+          >
+            toto
+          </Card>
         </div>
       </FadeIn>
     </section>
