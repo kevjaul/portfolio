@@ -3,6 +3,8 @@ interface Props {
   cardTitle?: string;
   cardSubTitle?: React.ReactNode;
   cardImage?: string;
+  ctaRedirect?: string;
+  ctaMessage?: React.ReactNode;
   cardFooter?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
@@ -13,6 +15,8 @@ function Card({
   cardTitle = "",
   cardSubTitle = "",
   cardImage = "",
+  ctaRedirect = "",
+  ctaMessage = "",
   cardFooter,
   className,
 }: Props) {
@@ -23,12 +27,19 @@ function Card({
     >
       <div className="border-b border-white/50 px-5 py-3">
         {cardImage && (
-          <div className="aspect-square overflow-hidden mb-2">
+          <div className="aspect-3/2 overflow-hidden mb-2 relative">
             <img
               src={cardImage}
               alt="logo"
               className="w-full h-full object-cover rounded-lg"
             />
+            <a
+              className="absolute z-20 top-0 right-0 bg-black/15 w-full h-full px-2 py-1 rounded-lg border-2 border-white text-white font-bold flex justify-end items-end lg:text-3xl md:text-2xl sm:text-3xl text-2xl"
+              href={ctaRedirect}
+              target="_blank"
+            >
+              {ctaMessage}
+            </a>
           </div>
         )}
         {cardTitle && (
