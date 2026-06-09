@@ -17,37 +17,38 @@ function Card({
   className,
 }: Props) {
   return (
-    <div className={`${className} lg:max-w-[650px] max-h-[450px]`} id={id}>
-      <div className="flex h-auto flex-col rounded-2xl border border-white/10 bg-white/5">
-        <div className="border-b border-white/50 px-5 py-3">
-          {cardImage && (
-            <div className="aspect-square overflow-hidden mb-2">
-              <img
-                src={cardImage}
-                alt="logo"
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-          )}
-          {cardTitle && (
-            <h2 className="lg:text-3xl text-xl font-semibold text-white">
-              {cardTitle}
-              {cardSubTitle && (
-                <p className="text-sm text-white/60">{cardSubTitle}</p>
-              )}
-            </h2>
-          )}
-        </div>
-
-        <div className="flex-1 px-5 py-3 overflow-auto text-white">
-          {children}
-        </div>
-        {cardFooter && (
-          <div className="border-t border-white/10 md:px-5 py-2">
-            {cardFooter}
+    <div
+      className={`${className} lg:max-w-[650px] max-h-[450px] flex h-auto flex-col rounded-2xl border border-white/10 bg-white/5`}
+      id={id}
+    >
+      <div className="border-b border-white/50 px-5 py-3">
+        {cardImage && (
+          <div className="aspect-square overflow-hidden mb-2">
+            <img
+              src={cardImage}
+              alt="logo"
+              className="w-full h-full object-cover rounded-lg"
+            />
           </div>
         )}
+        {cardTitle && (
+          <h2 className="lg:text-3xl text-xl font-semibold text-white">
+            {cardTitle}
+            {cardSubTitle && (
+              <p className="text-sm text-white/60">{cardSubTitle}</p>
+            )}
+          </h2>
+        )}
       </div>
+
+      <div className="flex-1 px-5 py-3 overflow-auto text-white">
+        {children}
+      </div>
+      {cardFooter && (
+        <div className="border-t border-white/10 md:px-5 py-2">
+          {cardFooter}
+        </div>
+      )}
     </div>
   );
 }
