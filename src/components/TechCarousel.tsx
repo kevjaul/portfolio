@@ -50,7 +50,7 @@ function TechCarousel({ techs }: Props) {
   }, [techs]);
 
   return (
-    <div ref={parentRef} className="w-full">
+    <div ref={parentRef} className="w-full pt-1">
       <div
         ref={childRef}
         className="py-2 justify-start gap-3 h-15 w-fit flex absolute invisible pointer-events-none whitespace-nowrap"

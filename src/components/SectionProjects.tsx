@@ -82,8 +82,14 @@ function SectionProjects() {
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/3/3b/Grafana_icon.svg",
     },
+    {
+      name: "GitLab",
+      subtitle: "",
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg",
+    },
   ];
-  const hvacProjectTechs: Techs[] = [
+  const cryptoProjectTechs: Techs[] = [
     {
       name: "Python",
       subtitle: "",
@@ -103,15 +109,13 @@ function SectionProjects() {
   ];
   return (
     <section id="projects">
-      <FadeIn direction="left" slideLenght={140}>
-        <h1 className="text-6xl highlight font-bold text-center md:mb-10 mb-4">
-          Projects
-        </h1>
-        <div className="grid grid-cols-4 grid-rows-2 gap-4 mx-10 lg:mx-30">
-          <div className="md:col-span-2 md:row-span-2 col-span-4 row-span-1 text-center lg:mr-10">
-            <h3 className="text-3xl text-white underline">
-              Highlighted Project
-            </h3>
+      <h1 className="text-6xl highlight font-bold text-center md:mb-0 mb-4">
+        Projects
+      </h1>
+      <div className="grid grid-cols-2 grid-rows-1 gap-4 xl:mx-30 md:mx-10 mx-4 ">
+        <div className="lg:col-span-1 col-span-2 text-center xl:m-10 m-0">
+          <FadeIn direction="left" slideLenght={140}>
+            <h3 className="text-3xl text-white underline">Featured Project</h3>
             <Card
               cardTitle="Application Credit Management API"
               cardSubTitle={<TechCarousel techs={mainProjectTechs} />}
@@ -135,33 +139,74 @@ function SectionProjects() {
               designed with production deployment and CI/CD integration in mind,
               making it suitable for real-world cloud environments.
             </Card>
-          </div>
-          <Card
-            cardTitle="CRM Legacy System Enhancement (Internship)"
-            cardSubTitle={<TechCarousel techs={crmProjectTechs} />}
-            cardImage="token-api-java.png"
-            className="md:col-span-1 col-span-2"
-          >
-            toto
-          </Card>
-          <Card
-            cardTitle="HVAC Kubernetes monitoring"
-            cardSubTitle={<TechCarousel techs={metricsProjectTechs} />}
-            cardImage="token-api-java.png"
-            className="md:col-span-1 col-span-2"
-          >
-            toto
-          </Card>
-          <Card
-            cardTitle="Secure File Vault System"
-            cardSubTitle={<TechCarousel techs={hvacProjectTechs} />}
-            cardImage="token-api-java.png"
-            className="md:col-span-1 col-span-2"
-          >
-            toto
-          </Card>
+          </FadeIn>
         </div>
-      </FadeIn>
+        <div className="my-10 md:mx-10 lg:col-span-1 col-span-2">
+          <FadeIn direction="right" slideLenght={140}>
+            <h3 className="text-3xl text-white underline mb-3 text-center">
+              Other Projects
+            </h3>
+            <div className="grid grid-cols-2 grid-rows-2 gap-4 ">
+              <Card
+                cardTitle="CRM Legacy System Enhancement (Internship)"
+                cardSubTitle={<TechCarousel techs={crmProjectTechs} />}
+                cardImage="temp"
+                textExpansion={true}
+              >
+                During this internship, I contributed to the evolution of a
+                long-standing CRM platform by implementing{" "}
+                <span className="font-bold">new backend services</span>,
+                integrating third-party REST APIs,{" "}
+                <span className="font-bold">
+                  improving the CI/CD pipeline, and reducing technical debt
+                </span>
+                . A major contribution was the design and implementation of a{" "}
+                <span className="font-bold">
+                  secure token-based access system integrated
+                </span>{" "}
+                into the existing architecture.
+              </Card>
+              <Card
+                cardTitle="CI/CD & Kubernetes monitoring plateform"
+                cardSubTitle={<TechCarousel techs={metricsProjectTechs} />}
+                cardImage="/metrics_project/monitoringCard.svg"
+                textExpansion={true}
+              >
+                A DevOps-focused project centered on{" "}
+                <span className="font-bold">CI/CD automation</span>, Kubernetes
+                orchestration, and observability. The pipeline automatically{" "}
+                <span className="font-bold">
+                  deploys Dockerized applications to a Kubernetes cluster
+                </span>{" "}
+                while Grafana dashboards{" "}
+                <span className="font-bold">
+                  monitor both application metrics and software development KPIs
+                </span>
+                , providing continuous feedback on system health and team
+                productivity.
+              </Card>
+              <Card
+                cardTitle="Secure File Vault System"
+                cardSubTitle={<TechCarousel techs={cryptoProjectTechs} />}
+                cardImage="/keyVault_project/vaultCard.png"
+                textExpansion={true}
+              >
+                A distributed secure file vault built entirely in Python,
+                featuring a custom{" "}
+                <span className="font-bold">
+                  Public Key Infrastructure (PKI)
+                </span>{" "}
+                ,certificate issuance, mutual authentication using a{" "}
+                <span className="font-bold">
+                  Zero-Knowledge Proof protocol{" "}
+                </span>
+                , and end-to-end encryption for{" "}
+                <span className="font-bold"> encrypted file storage</span> .
+              </Card>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
     </section>
   );
 }
