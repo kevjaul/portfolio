@@ -45,7 +45,7 @@ function Card({
 
   return (
     <div
-      className={`${className} lg:max-w-[650px] flex h-fit flex-col rounded-2xl border border-white/10 bg-white/5`}
+      className={`${className} lg:max-w-[650px] flex h-fit flex-col rounded-2xl bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.3),rgba(255,255,255,0.1))] backdrop-blur-xl border border-white/10`}
       id={id}
     >
       {cardImage && (
@@ -122,7 +122,7 @@ function Card({
                         font-medium
                         highlight
                         transition-colors
-                        hover:text-emerald-200
+                        hover:text-[#a855f740]
                         flex
                         flex-row
                         justify-center

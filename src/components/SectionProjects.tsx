@@ -129,7 +129,7 @@ function SectionProjects() {
                   Live on AWS →
                 </>
               }
-              className="mt-4 shadow-[rgba(101,255,177,0.8)] shadow-[0px_0px_50px] max-h-[1000px] lg:max-w-[fit-content]"
+              className="mt-4 shadow-[rgba(168,85,247,0.95)] shadow-[0px_0px_50px] max-h-[1000px] lg:max-w-[fit-content]"
               id="token-api-java"
             >
               This project is a Spring Boot backend API focused on secure token
@@ -141,12 +141,16 @@ function SectionProjects() {
             </Card>
           </FadeIn>
         </div>
-        <div className="my-10 md:mx-10 lg:col-span-1 col-span-2">
-          <FadeIn direction="right" slideLenght={140}>
-            <h3 className="text-3xl text-white underline mb-3 text-center">
-              Other Projects
-            </h3>
-            <div className="grid grid-cols-2 grid-rows-2 gap-4 ">
+        <div className="xl:my-10 md:mx-10 lg:col-span-1 col-span-2">
+          <h3 className="text-3xl text-white underline mb-3 text-center">
+            Other Projects
+          </h3>
+          <div className="grid grid-cols-2 grid-rows-2 gap-4 ">
+            <FadeIn
+              direction="right"
+              slideLenght={140}
+              className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
+            >
               <Card
                 cardTitle="CRM Legacy System Enhancement (Internship)"
                 cardSubTitle={<TechCarousel techs={crmProjectTechs} />}
@@ -166,6 +170,12 @@ function SectionProjects() {
                 </span>{" "}
                 into the existing architecture.
               </Card>
+            </FadeIn>
+            <FadeIn
+              direction="right"
+              slideLenght={140}
+              className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
+            >
               <Card
                 cardTitle="CI/CD & Kubernetes monitoring plateform"
                 cardSubTitle={<TechCarousel techs={metricsProjectTechs} />}
@@ -185,6 +195,12 @@ function SectionProjects() {
                 , providing continuous feedback on system health and team
                 productivity.
               </Card>
+            </FadeIn>
+            <FadeIn
+              direction="right"
+              slideLenght={140}
+              className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
+            >
               <Card
                 cardTitle="Secure File Vault System"
                 cardSubTitle={<TechCarousel techs={cryptoProjectTechs} />}
@@ -203,8 +219,8 @@ function SectionProjects() {
                 , and end-to-end encryption for{" "}
                 <span className="font-bold"> encrypted file storage</span> .
               </Card>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          </div>
         </div>
       </div>
     </section>

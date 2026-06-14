@@ -47,7 +47,7 @@ function PhotoCircles() {
             className="relative xl:w-200 xl:h-200 lg:w-150 lg:h-150 w-80 h-80 rounded-full overflow-hidden flex items-center justify-center"
           >
             <div className="absolute inset-0 pointer-events-none">
-              <div className="w-full h-full border-2 border-white rounded-full bg-[radial-gradient(circle_at_center,_#65ffb1f2_20%,_transparent_60%)] animate-[revealUp_1s_ease-out]" />
+              <div className="w-full h-full border-2 border-white rounded-full bg-[radial-gradient(circle_at_center,_#a855f740_20%,_transparent_60%)] animate-[revealUp_1s_ease-out]" />
               <div className="absolute inset-7 border border-white/80 rounded-full animate-[revealUp_1.2s_ease-out]" />
             </div>
             <FadeIn direction="down">

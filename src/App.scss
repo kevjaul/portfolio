@@ -3,26 +3,54 @@ $enable-gradients: true;
   min-height: 100vh;
 }
 
-@keyframes gradientMove {
+@keyframes noiseMove {
   0% {
-    background-position: 0% 50%;
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-20px, 20px);
+  }
+  40% {
+    transform: translate(-20px, -20px);
   }
   50% {
-    background-position: 100% 50%;
+    transform: translate(-10px, 0px);
+  }
+  60% {
+    transform: translate(20px, 20px);
+  }
+  80% {
+    transform: translate(20px, -20px);
   }
   100% {
-    background-position: 0% 50%;
+    transform: translate(0, 0);
   }
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+    background: radial-gradient(circle, #a855f740, transparent 70%);
+  }
+  to {
+    transform: translate3d(20px, -40px, 0);
+    background: radial-gradient(circle, #02073d, transparent 70%);
+  }
+}
+
+.animate-float {
+  animation: drift 20s linear infinite;
+  will-change: transform;
 }
 
 @layer base {
   html,
   body {
     margin: 0;
-    background: linear-gradient(120deg, #b165ff 20%, #ffb165 85%);
+    background: linear-gradient(125deg, #02073d, #1a023d);
     background-size: 200% 200%;
     overflow-x: hidden;
-    animation: gradientMove 15s ease infinite;
+    opacity: 0.95;
     font-family: "Exo 2", sans-serif !important;
     scroll-behavior: smooth;
   }
@@ -31,13 +59,42 @@ $enable-gradients: true;
     margin: 0;
     color: #fff;
   }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url("/noise_overlay.png");
+    background-repeat: repeat;
+
+    opacity: 0.07;
+
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+    z-index: 999999;
+    animation: noiseMove 20s ease infinite;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 0, 0, 0.15),
+      rgba(255, 255, 255, 0.1)
+    );
+  }
 }
 
 @layer components {
   .highlight {
     color: white;
     position: relative;
-    text-shadow: 0 0 4px rgba(101, 255, 177, 0.95);
+    text-shadow: 0 0 4px rgba(168, 85, 247, 0.95);
   }
 
   .app-btn {
@@ -57,7 +114,7 @@ $enable-gradients: true;
     &:hover {
       transform: scale(1.15);
       border-radius: 0.375rem;
-      background-color: rgb(52, 211, 153);
+      background-color: #a855f740;
     }
 
     &:active {
