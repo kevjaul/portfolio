@@ -7,9 +7,15 @@ function PhotoCircles() {
 
   const techs = [
     { name: "Java", icon: "./logos/java.svg" },
-    { name: "Git", icon: "./logos/git.svg" },
+    {
+      name: "Git",
+      icon: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg",
+    },
     { name: "React", icon: "./logos/react.svg" },
-    { name: "SpringBoot", icon: "./logos/spring-logo.png" },
+    {
+      name: "SpringBoot",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg",
+    },
   ];
   const circleRef = useRef<HTMLDivElement>(null);
   const [radius, setRadius] = useState(0);
@@ -41,7 +47,7 @@ function PhotoCircles() {
             className="relative xl:w-200 xl:h-200 lg:w-150 lg:h-150 w-80 h-80 rounded-full overflow-hidden flex items-center justify-center"
           >
             <div className="absolute inset-0 pointer-events-none">
-              <div className="w-full h-full border-2 border-white rounded-full bg-[radial-gradient(circle_at_center,_#65ffb1f2_20%,_transparent_60%)] animate-[revealUp_1s_ease-out]" />
+              <div className="w-full h-full border-2 border-white rounded-full bg-[radial-gradient(circle_at_center,_#a855f740_20%,_transparent_60%)] animate-[revealUp_1s_ease-out]" />
               <div className="absolute inset-7 border border-white/80 rounded-full animate-[revealUp_1.2s_ease-out]" />
             </div>
             <FadeIn direction="down">

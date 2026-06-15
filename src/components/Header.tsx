@@ -44,7 +44,7 @@ function Header() {
   );
   const setColorHeaderSection = () => {
     if (activeSection) {
-      return "text-[rgb(101,255,177)] font-bold";
+      return "text-[rgba(168,85,247,0.95)] font-bold";
     }
     return "text-white";
   };
@@ -75,7 +75,7 @@ function Header() {
             <p className="lg:text-4xl md:text-xl text-lg highlight">Kévin.J</p>
           </div>
           <div
-            className={`${scrolled ? "lg:w-1/3" : "lg:w-1/2"} w-1/2 flex flex-row justify-between border-2 border-white rounded mx-3 shadow-[0_0_10px_rgba(101,255,177,0.6)] min-w-[275px] transition-all duration-300`}
+            className={`${scrolled ? "lg:w-1/3" : "lg:w-1/2"} w-1/2 flex flex-row justify-between border-2 border-white rounded mx-3 shadow-[0_0_10px_rgba(168,85,247,0.95)] min-w-[275px] transition-all duration-300`}
           >
             {headerTabs.map((tab) => {
               const id = tab.toLowerCase();
