@@ -129,8 +129,9 @@ function SectionProjects() {
                   Live on AWS →
                 </>
               }
-              className="mt-4 shadow-[rgba(168,85,247,0.95)] shadow-[0px_0px_50px] max-h-[1000px] lg:max-w-[fit-content]"
+              className="mt-4 max-h-[1000px] lg:max-w-[fit-content]"
               id="token-api-java"
+              pulse
             >
               This project is a Spring Boot backend API focused on secure token
               and application management. It features API key authentication,

@@ -1,4 +1,5 @@
 import HomeSection from "./HomeSection";
+import SectionExperience from "./SectionExperience";
 import SectionSeparator from "./SectionSeparator";
 import SectionProjects from "./SectionProjects";
 
@@ -7,11 +8,10 @@ function MainContent() {
     <>
       <HomeSection />
       <SectionSeparator />
-      <section id="experience">
-        <div className="h-[1000px]"></div>
-      </section>
+      <SectionExperience />
       <SectionSeparator />
       <SectionProjects />
+      <SectionSeparator />
     </>
   );
 }

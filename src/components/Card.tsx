@@ -11,12 +11,14 @@ interface Props {
   cardFooter?: React.ReactNode;
   children: React.ReactNode;
   textExpansion?: boolean;
+  pulse?: boolean;
   className?: string;
 }
 function Card({
   id = "",
   children,
   textExpansion = false,
+  pulse = false,
   cardTitle = "",
   cardSubTitle = "",
   cardImage = "",
@@ -48,6 +50,10 @@ function Card({
       className={`${className} lg:max-w-[650px] flex h-fit flex-col rounded-2xl bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.3),rgba(255,255,255,0.1))] backdrop-blur-xl border border-white/10`}
       id={id}
     >
+      {pulse && (
+        <div className="absolute inset-0 -z-10 w-full h-full shadow-[rgba(168,85,247,1)] shadow-[0px_0px_150px] animate-pulse rounded-2xl" />
+      )}
+
       {cardImage && (
         <div className="md:aspect-video aspect-3/2 overflow-hidden mb-2 relative">
           <img
