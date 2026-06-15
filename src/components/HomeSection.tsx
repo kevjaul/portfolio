@@ -48,7 +48,10 @@ function HomeSection() {
                 cardTitle="About me"
                 cardFooter={
                   <div className="px-6 py-2 flex justify-end gap-3">
-                    <button className="border-2 border-white rounded shadow-[0_0_10px_rgba(168,85,247,0.95)] app-btn text-white">
+                    <button
+                      className="border-2 border-white rounded shadow-[0_0_10px_rgba(168,85,247,0.95)] app-btn text-white"
+                      onClick={() => scrollToSection("contact")}
+                    >
                       Contact Me
                     </button>
 
@@ -57,7 +60,7 @@ function HomeSection() {
                     </button>
                   </div>
                 }
-                className="mx-10 my-3 w-fit"
+                className="mx-10 my-3 w-fit lg:max-w-[650px]"
               >
                 I enjoy understanding how software works beyond writing code.
                 From designing <span className="font-bold">REST APIs</span> and
