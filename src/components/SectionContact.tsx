@@ -44,26 +44,61 @@ function SectionContact() {
       >
         <div className="grid grid-flow-col grid-rows-3 grid-cols-3 gap-10 w-[inherit] lg:max-w-[75%] mx-10 lg:mx-0">
           <Card
-            cardTitle="Email"
+            customTitle={
+              <div className="flex flex-col items-center">
+                <img
+                  width="48"
+                  height="48"
+                  src="logos/email.svg"
+                  alt="email logo"
+                />
+                <h1 className="2xl:text-3xl xl:text-2xl text-xl font-semibold text-white">
+                  Email
+                </h1>
+              </div>
+            }
             className="h-full text-center hidden lg:inline"
           >
             kevin31072002@gmail.com
           </Card>
           <Card
-            cardTitle="Phone Number"
+            customTitle={
+              <div className="flex flex-col items-center">
+                <img width="48" height="48" src="logos/phone.svg" alt="phone" />
+                <h1 className="2xl:text-3xl xl:text-2xl text-xl font-semibold text-white">
+                  Phone Number
+                </h1>
+              </div>
+            }
             className="h-full text-center hidden lg:inline"
           >
             +33 7 50 61 95 51
           </Card>
           <Card
-            cardTitle="Sector"
+            customTitle={
+              <div className="flex flex-col items-center">
+                <img
+                  width="48"
+                  height="48"
+                  src="logos/location.svg"
+                  alt="location pointer"
+                />
+                <h1 className="2xl:text-3xl xl:text-2xl text-xl font-semibold text-white">
+                  Sector
+                </h1>
+              </div>
+            }
             className="h-full text-center hidden lg:inline"
           >
             Nantes and periphery, Cholet, Saint-Nazaire
           </Card>
           <Card
-            cardTitle="Want's to collabor ? Contact me !"
-            cardSubTitle="I will be happy to work with you !"
+            customTitle={
+              <h1 className="w-fit 2xl:text-5xl xl:text-4xl lg:text-3xl text-4xl font-semibold bg-gradient-to-r from-[#a855f7f2] from-30% to-white to-80% bg-clip-text text-transparent">
+                Let's work together !
+              </h1>
+            }
+            cardSubTitle="Interested in my profile or have an opportunity to discuss ? I'd be happy to hear from you and explore how can I contribute to your team."
             className="h-full row-span-3 lg:col-span-2 col-span-3 pt-5 mx-0 w-full"
           >
             <form onSubmit={handleSubmit}>

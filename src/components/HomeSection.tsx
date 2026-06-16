@@ -60,7 +60,7 @@ function HomeSection() {
                     </button>
                   </div>
                 }
-                className="mx-10 my-3 w-fit lg:max-w-[650px]"
+                className="mx-10 my-3 w-fit lg:max-w-[650px] indent-8 text-justify"
               >
                 I enjoy understanding how software works beyond writing code.
                 From designing <span className="font-bold">REST APIs</span> and
@@ -80,7 +80,7 @@ function HomeSection() {
               <Card
                 cardTitle="6 months"
                 cardSubTitle="Of fullstack experience"
-                className="text-black"
+                className="text-justify"
               >
                 Php - Javascript - Cypress - MySQL - APIs Management
               </Card>
@@ -96,6 +96,7 @@ function HomeSection() {
                     </button>
                   </div>
                 }
+                className="text-justify"
               >
                 Spring Boot - PostgreSQL - JUnit - JPA/Hibernate - AWS -
                 Pipeline CI/CD
@@ -103,7 +104,7 @@ function HomeSection() {
               <Card
                 cardTitle="Dual Master's-Level Degrees"
                 cardSubTitle="Computer Science & Cybersecurity"
-                className="col-span-2 xl:col-span-1"
+                className="col-span-2 xl:col-span-1 indent-8 text-justify"
               >
                 Strong academic foundation combining software engineering
                 principles with cybersecurity, enabling me to build reliable and

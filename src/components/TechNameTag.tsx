@@ -12,7 +12,7 @@ function TechNameTag({ techLogo, subtitle = "", children }: Props) {
         alt={`${children} logo`}
         className="w-9 h-9 object-contain border-r-2 border-white/80 p-1"
       />
-      <div className="md:pr-3 pr-2 pl-2 md:py-1 leading-none">
+      <div className="md:pr-3 pr-2 pl-2 md:py-1 leading-none indent-0">
         <div className="md:text-base text-sm">{children}</div>
         {subtitle && <div className="text-xs text-white/80">{subtitle}</div>}
       </div>
