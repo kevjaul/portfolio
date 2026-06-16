@@ -84,9 +84,7 @@ function Card({
           </h2>
         )}
         {cardSubTitle && (
-          <div className="text-sm text-white/60 max-h-[60px]">
-            {cardSubTitle}
-          </div>
+          <div className="text-sm text-white/60">{cardSubTitle}</div>
         )}
       </div>
 

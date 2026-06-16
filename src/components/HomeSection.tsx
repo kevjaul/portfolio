@@ -49,7 +49,7 @@ function HomeSection() {
                 cardFooter={
                   <div className="px-6 py-2 flex justify-end gap-3">
                     <button
-                      className="border-2 border-white rounded shadow-[0_0_10px_rgba(168,85,247,0.95)] app-btn text-white"
+                      className="border-2 border-white rounded shadow-[0_0_10px_rgba(168,85,247,0.95)] app-btn text-white pulse-button"
                       onClick={() => scrollToSection("contact")}
                     >
                       Contact Me

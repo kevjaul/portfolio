@@ -1,9 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FadeIn from "./animations/FadeIn";
 import Card from "./Card";
 function SectionContact() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [rows, setRows] = useState(5);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+
+      if (w > 1560) setRows(7);
+      else if (w >= 1024) setRows(9);
+      else setRows(4);
+    };
+
+    update();
+    window.addEventListener("resize", update);
+
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -94,7 +110,7 @@ function SectionContact() {
           </Card>
           <Card
             customTitle={
-              <h1 className="w-fit 2xl:text-5xl xl:text-4xl lg:text-3xl text-4xl font-semibold bg-gradient-to-r from-[#a855f7f2] from-30% to-white to-80% bg-clip-text text-transparent">
+              <h1 className="w-fit 2xl:text-5xl xl:text-4xl lg:text-3xl text-4xl font-semibold bg-gradient-to-r from-[#a855f7f2] from-30% to-white to-80% bg-clip-text text-transparent pb-1">
                 Let's work together !
               </h1>
             }
@@ -128,7 +144,7 @@ function SectionContact() {
                 <textarea
                   name="message"
                   placeholder="Your message..."
-                  rows={4}
+                  rows={rows}
                   className="bg-white/5 border border-white/10 p-3 rounded-lg md:col-span-2"
                   required
                 />
@@ -137,9 +153,35 @@ function SectionContact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="highlight my-4 py-3 rounded-lg bg-[#a855f740]/40 hover:bg-[#a855f740] app-btn border-2 border-white shadow-[0_0_10px_rgba(168,85,247,0.95)] transition w-1/2 scale-[0.9]"
+                  className="highlight my-4 py-3 rounded-lg bg-[#a855f740]/40 hover:bg-[#A855F7F2] app-btn border-2 border-white shadow-[0_0_10px_rgba(168,85,247,0.95)] transition w-1/2 scale-[0.9] flex items-center justify-center"
                 >
-                  {loading ? "Envoi..." : "Envoyer"}
+                  {loading ? (
+                    <>
+                      <svg
+                        className="mr-3 -ml-1 size-5 animate-spin"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          stroke-width="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      Envoi...
+                    </>
+                  ) : (
+                    "Envoyer"
+                  )}
                 </button>
               </div>
               {success && (
