@@ -7,6 +7,14 @@ function Footer() {
   const [hasBeenScrolled, setHasBeenScrolled] = useState(false);
   const footerButtons = ["CV", "Contact me !"];
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    const offset = element ? 100 : 0;
+    const y =
+      (element?.getBoundingClientRect()?.top || 0) + window.scrollY - offset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 150);
@@ -33,7 +41,10 @@ function Footer() {
               <button className="app-btn highlight w-1/3 border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(168,85,247,0.95)]">
                 {footerButtons[0]}
               </button>
-              <button className="app-btn highlight w-1/2 border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(168,85,247,0.95)]">
+              <button
+                className="app-btn highlight w-1/2 border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(168,85,247,0.95)]"
+                onClick={() => scrollToSection("contact")}
+              >
                 {footerButtons[1]}
               </button>
             </div>

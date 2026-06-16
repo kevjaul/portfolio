@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 interface Props {
   id?: string;
+  customTitle?: React.ReactNode;
   cardTitle?: string;
   cardSubTitle?: React.ReactNode;
   cardImage?: string;
@@ -19,6 +20,7 @@ function Card({
   children,
   textExpansion = false,
   pulse = false,
+  customTitle = "",
   cardTitle = "",
   cardSubTitle = "",
   cardImage = "",
@@ -47,7 +49,7 @@ function Card({
 
   return (
     <div
-      className={`${className} lg:max-w-[650px] flex h-fit flex-col rounded-2xl bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.3),rgba(255,255,255,0.1))] backdrop-blur-xl border border-white/10`}
+      className={`${className} flex h-fit flex-col rounded-2xl bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.3),rgba(255,255,255,0.1))] backdrop-blur-xl border border-white/10`}
       id={id}
     >
       {pulse && (
@@ -75,19 +77,18 @@ function Card({
       <div
         className={`border-b border-white/50 px-5 ${cardImage ? "pb-2" : "py-3"}`}
       >
+        {customTitle}
         {cardTitle && (
-          <h2 className="2xl:text-3xl xl:text-2xl text-xl font-semibold text-white">
+          <h2 className="2xl:text-3xl xl:text-2xl text-xl font-semibold text-white indent-0 text-left">
             {cardTitle}
-            {cardSubTitle && (
-              <div className="text-sm text-white/60 max-h-[60px]">
-                {cardSubTitle}
-              </div>
-            )}
           </h2>
+        )}
+        {cardSubTitle && (
+          <div className="text-sm text-white/60">{cardSubTitle}</div>
         )}
       </div>
 
-      <div className="flex-1 px-5 py-3 overflow-auto text-white sm:text-base text-sm">
+      <div className="flex-1 px-5 py-3 overflow-auto text-white sm:text-base text-sm indent-[inherit] text-[inherit]">
         {!textExpansion ? (
           children
         ) : (

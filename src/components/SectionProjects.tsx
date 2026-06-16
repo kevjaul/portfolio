@@ -129,7 +129,7 @@ function SectionProjects() {
                   Live on AWS →
                 </>
               }
-              className="mt-4 max-h-[1000px] lg:max-w-[fit-content]"
+              className="mt-4 max-h-[1000px] lg:max-w-[fit-content] indent-8 text-justify"
               id="token-api-java"
               pulse
             >
@@ -157,6 +157,7 @@ function SectionProjects() {
                 cardSubTitle={<TechCarousel techs={crmProjectTechs} />}
                 cardImage="temp"
                 textExpansion={true}
+                className="indent-8 text-justify"
               >
                 During this internship, I contributed to the evolution of a
                 long-standing CRM platform by implementing{" "}
@@ -182,6 +183,7 @@ function SectionProjects() {
                 cardSubTitle={<TechCarousel techs={metricsProjectTechs} />}
                 cardImage="/metrics_project/monitoringCard.svg"
                 textExpansion={true}
+                className="indent-8 text-justify"
               >
                 A DevOps-focused project centered on{" "}
                 <span className="font-bold">CI/CD automation</span>, Kubernetes
@@ -207,6 +209,7 @@ function SectionProjects() {
                 cardSubTitle={<TechCarousel techs={cryptoProjectTechs} />}
                 cardImage="/keyVault_project/vaultCard.png"
                 textExpansion={true}
+                className="indent-8 text-justify"
               >
                 A distributed secure file vault built entirely in Python,
                 featuring a custom{" "}

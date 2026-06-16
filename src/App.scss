@@ -38,6 +38,47 @@ $enable-gradients: true;
   }
 }
 
+@keyframes buttonPulseGlow {
+  0% {
+    background-color: rgba(169, 85, 247, 0.25);
+    transform: scale(1);
+  }
+
+  50% {
+    background-color: rgb(169, 85, 247);
+    transform: scale(1.15);
+  }
+
+  100% {
+    background-color: rgba(169, 85, 247, 0.25);
+    transform: scale(1);
+  }
+}
+
+@keyframes successPopupIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes successPopupOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+}
+
 .animate-float {
   animation: drift 20s linear infinite;
   will-change: transform;
@@ -119,6 +160,16 @@ $enable-gradients: true;
 
     &:active {
       transform: scale(0.95);
+    }
+  }
+
+  .pulse-button {
+    animation: buttonPulseGlow 2.5s ease-in-out infinite;
+
+    &:hover {
+      animation: none;
+      background-color: rgb(168, 85, 247);
+      transform: scale(1.15);
     }
   }
 }

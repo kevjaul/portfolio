@@ -48,7 +48,10 @@ function HomeSection() {
                 cardTitle="About me"
                 cardFooter={
                   <div className="px-6 py-2 flex justify-end gap-3">
-                    <button className="border-2 border-white rounded shadow-[0_0_10px_rgba(168,85,247,0.95)] app-btn text-white">
+                    <button
+                      className="border-2 border-white rounded shadow-[0_0_10px_rgba(168,85,247,0.95)] app-btn text-white pulse-button"
+                      onClick={() => scrollToSection("contact")}
+                    >
                       Contact Me
                     </button>
 
@@ -57,7 +60,7 @@ function HomeSection() {
                     </button>
                   </div>
                 }
-                className="mx-10 my-3 w-fit"
+                className="mx-10 my-3 w-fit lg:max-w-[650px] indent-8 text-justify"
               >
                 I enjoy understanding how software works beyond writing code.
                 From designing <span className="font-bold">REST APIs</span> and
@@ -77,7 +80,7 @@ function HomeSection() {
               <Card
                 cardTitle="6 months"
                 cardSubTitle="Of fullstack experience"
-                className="text-black"
+                className="text-justify"
               >
                 Php - Javascript - Cypress - MySQL - APIs Management
               </Card>
@@ -93,6 +96,7 @@ function HomeSection() {
                     </button>
                   </div>
                 }
+                className="text-justify"
               >
                 Spring Boot - PostgreSQL - JUnit - JPA/Hibernate - AWS -
                 Pipeline CI/CD
@@ -100,7 +104,7 @@ function HomeSection() {
               <Card
                 cardTitle="Dual Master's-Level Degrees"
                 cardSubTitle="Computer Science & Cybersecurity"
-                className="col-span-2 xl:col-span-1"
+                className="col-span-2 xl:col-span-1 indent-8 text-justify"
               >
                 Strong academic foundation combining software engineering
                 principles with cybersecurity, enabling me to build reliable and
