@@ -55,7 +55,15 @@ function HomeSection() {
                       Contact Me
                     </button>
 
-                    <button className="border-2 border-white rounded shadow-[0_0_10px_rgba(168,85,247,0.95)] text-white app-btn">
+                    <button
+                      className="border-2 border-white rounded shadow-[0_0_10px_rgba(168,85,247,0.95)] text-white app-btn"
+                      onClick={() => {
+                        const link = document.createElement("a");
+                        link.href = "CV_2026_FullStack.pdf";
+                        link.download = "CV 2026 Fullstack.pdf";
+                        link.click();
+                      }}
+                    >
                       Download CV
                     </button>
                   </div>

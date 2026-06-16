@@ -38,7 +38,15 @@ function Footer() {
         >
           <FadeIn direction="up">
             <div className="my-2 w-70 flex flex-row justify-strech">
-              <button className="app-btn highlight w-1/3 border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(168,85,247,0.95)]">
+              <button
+                className="app-btn highlight w-1/3 border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(168,85,247,0.95)]"
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = "CV_2026_FullStack.pdf";
+                  link.download = "CV 2026 Fullstack.pdf";
+                  link.click();
+                }}
+              >
                 {footerButtons[0]}
               </button>
               <button
