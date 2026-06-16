@@ -21,6 +21,22 @@ function SectionContact() {
     return () => window.removeEventListener("resize", update);
   }, []);
 
+  const [hideSuccess, setHideSuccess] = useState(false);
+
+  const displaySuccess = () => {
+    setSuccess(true);
+    setHideSuccess(false);
+
+    setTimeout(() => {
+      setHideSuccess(true);
+    }, 4000);
+
+    setTimeout(() => {
+      setSuccess(false);
+      setHideSuccess(false);
+    }, 4400);
+  };
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
@@ -44,7 +60,7 @@ function SectionContact() {
     setLoading(false);
 
     if (res.ok) {
-      setSuccess(true);
+      displaySuccess();
       e.target.reset();
     }
   };
@@ -153,7 +169,7 @@ function SectionContact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="highlight my-4 py-3 rounded-lg bg-[#a855f740]/40 hover:bg-[#A855F7F2] app-btn border-2 border-white shadow-[0_0_10px_rgba(168,85,247,0.95)] transition w-1/2 scale-[0.9] flex items-center justify-center"
+                  className={`highlight my-4 py-3 rounded-lg bg-[#a855f740]/40 hover:bg-[#A855F7F2] app-btn border-2 border-white shadow-[0_0_10px_rgba(168,85,247,0.95)] transition w-1/2 scale-[0.9] flex items-center justify-center ${loading && "disabled:pointer-events-none disabled:bg-gray-400/70 disabled:opacity-60"}`}
                 >
                   {loading ? (
                     <>
@@ -177,17 +193,45 @@ function SectionContact() {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         ></path>
                       </svg>
-                      Envoi...
+                      Sending...
                     </>
                   ) : (
-                    "Envoyer"
+                    "Send"
                   )}
                 </button>
               </div>
               {success && (
-                <p className="text-emerald-300 text-center">
-                  Message envoyé avec succès ✔
-                </p>
+                <div
+                  className={`
+        absolute
+        top-1/2
+        left-1/2
+        w-[93%]
+        h-[93%]
+        rounded-xl
+        border-2
+        border-emerald-300
+        bg-emerald-900/80
+        backdrop-blur-sm
+        flex
+        items-center
+        justify-center
+        animate-[successPopupIn_250ms_ease-out_forwards]
+        ${hideSuccess && "animate-[successPopupOut_400ms_ease-in_forwards]"}
+      `}
+                >
+                  <div className="flex flex-col items-center gap-5">
+                    <div className="text-5xl">✔</div>
+
+                    <p className="text-lg font-medium text-emerald-300">
+                      Message sent successfully
+                    </p>
+
+                    <p className="text-sm text-emerald-200/70">
+                      I'll get back to you as soon as possible.
+                    </p>
+                  </div>
+                </div>
               )}
             </form>
           </Card>
