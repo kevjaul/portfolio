@@ -63,12 +63,14 @@ function Footer() {
               <button
                 className="app-btn highlight border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(168,85,247,0.95)] backdrop-blur-md"
                 onClick={() =>
-                  i18n.changeLanguage(i18n.language === "en" ? "fr" : "en")
+                  i18n.changeLanguage(
+                    i18n.resolvedLanguage === "en" ? "fr" : "en",
+                  )
                 }
               >
                 <img
                   src={
-                    i18n.language === "en"
+                    i18n.resolvedLanguage === "en"
                       ? "https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg"
                       : "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
                   }

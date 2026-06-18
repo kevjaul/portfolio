@@ -112,7 +112,7 @@ function SectionProjects() {
   return (
     <section
       id={t("sections.projects").toLowerCase()}
-      className="scroll-mt-[100px]"
+      className="scroll-mt-[100px] [content-visibility:auto]"
     >
       <h1 className="text-6xl highlight font-bold text-center md:mb-0 mb-4">
         {t("sections.projects")}
@@ -123,25 +123,27 @@ function SectionProjects() {
             <h3 className="text-3xl text-white underline">
               {t("projects.featuredProject.title")}
             </h3>
-            <Card
-              cardTitle={t("projects.featuredProject.cardTitle")}
-              cardSubTitle={<TechCarousel techs={mainProjectTechs} />}
-              cardImage="token-api-java.png"
-              ctaRedirect="http://token-api-java-env.eba-cyz3fx3h.eu-west-1.elasticbeanstalk.com/swagger-ui/index.html"
-              ctaMessage={
-                <>
-                  <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent lg:text-5xl md:text-4xl sm:text-5xl text-4xl leading-none">
-                    &#x25CF;
-                  </span>
-                  {t("projects.featuredProject.cta")} →
-                </>
-              }
-              className="mt-4 max-h-[1000px] lg:max-w-[fit-content] indent-8 text-justify"
-              id="token-api-java"
-              pulse
-            >
-              {t("projects.featuredProject.projectDescription")}
-            </Card>
+            <div className="will-change-transform">
+              <Card
+                cardTitle={t("projects.featuredProject.cardTitle")}
+                cardSubTitle={<TechCarousel techs={mainProjectTechs} />}
+                cardImage="token-api-java.png"
+                ctaRedirect="http://token-api-java-env.eba-cyz3fx3h.eu-west-1.elasticbeanstalk.com/swagger-ui/index.html"
+                ctaMessage={
+                  <>
+                    <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent lg:text-5xl md:text-4xl sm:text-5xl text-4xl leading-none">
+                      &#x25CF;
+                    </span>
+                    {t("projects.featuredProject.cta")} →
+                  </>
+                }
+                className="mt-4 max-h-[1000px] lg:max-w-[fit-content] indent-8 text-justify"
+                id="token-api-java"
+                pulse
+              >
+                {t("projects.featuredProject.projectDescription")}
+              </Card>
+            </div>
           </FadeIn>
         </div>
         <div className="xl:my-10 md:mx-10 lg:col-span-1 col-span-2">
@@ -154,54 +156,60 @@ function SectionProjects() {
               slideLenght={140}
               className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
             >
-              <Card
-                cardTitle={t("projects.otherProjects.firstCard.title")}
-                cardSubTitle={<TechCarousel techs={crmProjectTechs} />}
-                cardImage="temp"
-                textExpansion={true}
-                className="indent-8 text-justify"
-              >
-                <Trans
-                  i18nKey="projects.otherProjects.firstCard.description"
-                  components={[<b />]}
-                />
-              </Card>
+              <div className="will-change-transform">
+                <Card
+                  cardTitle={t("projects.otherProjects.firstCard.title")}
+                  cardSubTitle={<TechCarousel techs={crmProjectTechs} />}
+                  cardImage="temp"
+                  textExpansion={true}
+                  className="indent-8 text-justify"
+                >
+                  <Trans
+                    i18nKey="projects.otherProjects.firstCard.description"
+                    components={[<b />]}
+                  />
+                </Card>
+              </div>
             </FadeIn>
             <FadeIn
               direction="right"
               slideLenght={140}
               className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
             >
-              <Card
-                cardTitle={t("projects.otherProjects.secondCard.title")}
-                cardSubTitle={<TechCarousel techs={metricsProjectTechs} />}
-                cardImage="/metrics_project/monitoringCard.svg"
-                textExpansion={true}
-                className="indent-8 text-justify"
-              >
-                <Trans
-                  i18nKey="projects.otherProjects.secondCard.description"
-                  components={[<b />]}
-                />
-              </Card>
+              <div className="will-change-transform">
+                <Card
+                  cardTitle={t("projects.otherProjects.secondCard.title")}
+                  cardSubTitle={<TechCarousel techs={metricsProjectTechs} />}
+                  cardImage="/metrics_project/monitoringCard.svg"
+                  textExpansion={true}
+                  className="indent-8 text-justify"
+                >
+                  <Trans
+                    i18nKey="projects.otherProjects.secondCard.description"
+                    components={[<b />]}
+                  />
+                </Card>
+              </div>
             </FadeIn>
             <FadeIn
               direction="right"
               slideLenght={140}
               className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
             >
-              <Card
-                cardTitle={t("projects.otherProjects.thirdCard.title")}
-                cardSubTitle={<TechCarousel techs={cryptoProjectTechs} />}
-                cardImage="/keyVault_project/vaultCard.png"
-                textExpansion={true}
-                className="indent-8 text-justify"
-              >
-                <Trans
-                  i18nKey="projects.otherProjects.thirdCard.description"
-                  components={[<b />]}
-                />
-              </Card>
+              <div className="will-change-transform">
+                <Card
+                  cardTitle={t("projects.otherProjects.thirdCard.title")}
+                  cardSubTitle={<TechCarousel techs={cryptoProjectTechs} />}
+                  cardImage="/keyVault_project/vaultCard.png"
+                  textExpansion={true}
+                  className="indent-8 text-justify"
+                >
+                  <Trans
+                    i18nKey="projects.otherProjects.thirdCard.description"
+                    components={[<b />]}
+                  />
+                </Card>
+              </div>
             </FadeIn>
           </div>
         </div>

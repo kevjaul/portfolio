@@ -18,7 +18,7 @@ function HomeSection() {
   return (
     <section
       id={t("sections.home").toLowerCase()}
-      className="scroll-mt-[100px]"
+      className="scroll-mt-[100px] [content-visibility:auto]"
     >
       <FadeIn direction="up">
         <div className="flex flex-col items-center mt-[100px] mb-15">

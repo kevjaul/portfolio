@@ -24,9 +24,9 @@ function FadeIn({
     <motion.div
       initial={variants[direction]}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2, margin: "50px" }}
       transition={{ duration: 0.6 }}
-      className={`will-change-transform ${className}`}
+      className={`${className}`}
     >
       {children}
     </motion.div>

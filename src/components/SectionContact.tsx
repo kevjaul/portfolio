@@ -69,7 +69,7 @@ function SectionContact() {
   return (
     <section
       id={t("sections.contact").toLowerCase()}
-      className="scroll-mt-[100px]"
+      className="scroll-mt-[100px] [content-visibility:auto]"
     >
       <h1 className="text-6xl highlight font-bold text-center md:mb-0 mb-4">
         Contact
