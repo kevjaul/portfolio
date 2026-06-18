@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import FadeIn from "./animations/FadeIn";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
+  const { i18n, t } = useTranslation();
+
   const [scrolled, setScrolled] = useState(false);
   const [hasBeenScrolled, setHasBeenScrolled] = useState(false);
-  const footerButtons = ["CV", "Contact me !"];
+  const footerButtons = [t("footer.cv"), t("footer.contact")];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -34,26 +37,44 @@ function Footer() {
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -40 }}
-          className="fixed bottom-0 left-8 z-50 flex gap-4 backdrop-blur-md"
+          className="fixed bottom-0 z-50 flex gap-4 w-full"
         >
-          <FadeIn direction="up">
-            <div className="my-2 w-70 flex flex-row justify-strech">
+          <FadeIn direction="down" className="w-[inherit]">
+            <div className="flex flex-row justify-between w-[inherit] my-2">
+              <div className="w-fit flex flex-row justify-strech ml-8 text-nowrap">
+                <button
+                  className="app-btn highlight border-2 border-white rounded mr-2 shadow-[0_0_10px_rgba(168,85,247,0.95)] px-5 backdrop-blur-md"
+                  onClick={() => {
+                    const link = document.createElement("a");
+                    link.href = "CV_2026_FullStack.pdf";
+                    link.download = "CV 2026 Fullstack.pdf";
+                    link.click();
+                  }}
+                >
+                  {footerButtons[0]}
+                </button>
+                <button
+                  className="app-btn highlight border-2 border-white rounded ml-2 shadow-[0_0_10px_rgba(168,85,247,0.95)] px-3 backdrop-blur-md"
+                  onClick={() => scrollToSection("contact")}
+                >
+                  {footerButtons[1]}
+                </button>
+              </div>
               <button
-                className="app-btn highlight w-1/3 border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(168,85,247,0.95)]"
-                onClick={() => {
-                  const link = document.createElement("a");
-                  link.href = "CV_2026_FullStack.pdf";
-                  link.download = "CV 2026 Fullstack.pdf";
-                  link.click();
-                }}
+                className="app-btn highlight border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(168,85,247,0.95)] backdrop-blur-md"
+                onClick={() =>
+                  i18n.changeLanguage(i18n.language === "en" ? "fr" : "en")
+                }
               >
-                {footerButtons[0]}
-              </button>
-              <button
-                className="app-btn highlight w-1/2 border-2 border-white rounded mx-2 shadow-[0_0_10px_rgba(168,85,247,0.95)]"
-                onClick={() => scrollToSection("contact")}
-              >
-                {footerButtons[1]}
+                <img
+                  src={
+                    i18n.language === "en"
+                      ? "https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg"
+                      : "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
+                  }
+                  alt="flag"
+                  className="w-8 rounded-md"
+                />
               </button>
             </div>
           </FadeIn>
@@ -70,7 +91,7 @@ function Footer() {
               <div className="w-1 h-2 bg-white rounded-full mt-2 animate-bounce shadow-[0_0_10px_rgba(168,85,247,0.95)]" />
             </div>
             <span className="text-sm tracking-widest uppercase">
-              Scroll to explore
+              {t("footer.scrollCta")}
             </span>
           </motion.div>
         )

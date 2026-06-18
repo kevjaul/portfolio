@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import FadeIn from "./animations/FadeIn";
+import { useTranslation } from "react-i18next";
+
 function Header() {
+  const { t } = useTranslation();
+
   function useActiveSection(sectionIds: string[]) {
     const [activeSection, setActiveSection] = useState(sectionIds[0]);
 
@@ -38,7 +42,12 @@ function Header() {
   }
 
   const [scrolled, setScrolled] = useState(false);
-  const headerTabs = ["Home", "Experience", "Projects", "Contact"];
+  const headerTabs = [
+    t("sections.home"),
+    t("sections.experience"),
+    t("sections.projects"),
+    t("sections.contact"),
+  ];
   const activeSection = useActiveSection(
     headerTabs.map((s) => s.toLowerCase()),
   );
@@ -68,7 +77,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 z-50 w-full backdrop-blur-md pb-4">
+    <header className="fixed top-0 z-50 w-full backdrop-blur-md">
       <FadeIn direction="up">
         <div className="my-4 mx-3 flex flex-row justify-between">
           <div className="w-1/2 h-auto items-center flex">
@@ -83,7 +92,7 @@ function Header() {
               return (
                 <button
                   className={`lg:w-1/4 app-btn highlight ${isActive ? `${setColorHeaderSection()} hover:text-white` : "text-white"}`}
-                  onClick={() => scrollToSection(tab.toLowerCase())}
+                  onClick={() => scrollToSection(id)}
                 >
                   {tab}
                 </button>
