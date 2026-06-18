@@ -119,7 +119,7 @@ function SectionProjects() {
       </h1>
       <div className="grid grid-cols-2 grid-rows-1 gap-4 xl:mx-30 md:mx-10 mx-4 ">
         <div className="lg:col-span-1 col-span-2 text-center xl:m-10 m-0">
-          <FadeIn direction="left" slideLenght={140}>
+          <FadeIn direction="left" slideLength={140}>
             <h3 className="text-3xl text-white underline">
               {t("projects.featuredProject.title")}
             </h3>
@@ -153,7 +153,7 @@ function SectionProjects() {
           <div className="grid grid-cols-2 grid-rows-2 gap-4 ">
             <FadeIn
               direction="right"
-              slideLenght={140}
+              slideLength={140}
               className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
             >
               <div className="will-change-transform">
@@ -173,7 +173,7 @@ function SectionProjects() {
             </FadeIn>
             <FadeIn
               direction="right"
-              slideLenght={140}
+              slideLength={140}
               className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
             >
               <div className="will-change-transform">
@@ -193,7 +193,7 @@ function SectionProjects() {
             </FadeIn>
             <FadeIn
               direction="right"
-              slideLenght={140}
+              slideLength={140}
               className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
             >
               <div className="will-change-transform">

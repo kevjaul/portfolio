@@ -76,7 +76,7 @@ function SectionContact() {
       </h1>
       <FadeIn
         direction="left"
-        slideLenght={140}
+        slideLength={140}
         className="flex w-full items-center justify-center my-10"
       >
         <div className="grid grid-flow-col grid-rows-3 grid-cols-3 gap-10 w-[inherit] lg:max-w-[75%] mx-10 lg:mx-0">
