@@ -18,7 +18,7 @@ function FadeIn({
   const controls = useAnimation();
 
   const isInView = useInView(ref, {
-    margin: "3000px 0px",
+    margin: "50px 0px",
     once: true,
   });
 
