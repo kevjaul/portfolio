@@ -25,7 +25,11 @@ function MainFooter() {
             {sections.map((section) => {
               const refenceId = section.toLowerCase();
               return (
-                <a href={`#${refenceId}`} className="hover:text-[#A855F7F2]">
+                <a
+                  key={refenceId + "_footerBtn"}
+                  href={`#${refenceId}`}
+                  className="hover:text-[#A855F7F2]"
+                >
                   {section}
                 </a>
               );

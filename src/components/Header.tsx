@@ -91,6 +91,7 @@ function Header() {
               const isActive = activeSection === id;
               return (
                 <button
+                  key={id + "_btn"}
                   className={`lg:w-1/4 app-btn highlight ${isActive ? `${setColorHeaderSection()} hover:text-white` : "text-white"}`}
                   onClick={() => scrollToSection(id)}
                 >
