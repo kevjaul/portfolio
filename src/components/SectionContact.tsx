@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import FadeIn from "./animations/FadeIn";
 import Card from "./Card";
 function SectionContact() {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [rows, setRows] = useState(5);
@@ -65,13 +67,16 @@ function SectionContact() {
     }
   };
   return (
-    <section id="contact">
+    <section
+      id={t("sections.contact").toLowerCase()}
+      className="scroll-mt-[100px] [content-visibility:auto]"
+    >
       <h1 className="text-6xl highlight font-bold text-center md:mb-0 mb-4">
         Contact
       </h1>
       <FadeIn
         direction="left"
-        slideLenght={140}
+        slideLength={140}
         className="flex w-full items-center justify-center my-10"
       >
         <div className="grid grid-flow-col grid-rows-3 grid-cols-3 gap-10 w-[inherit] lg:max-w-[75%] mx-10 lg:mx-0">
@@ -98,7 +103,7 @@ function SectionContact() {
               <div className="flex flex-col items-center">
                 <img width="48" height="48" src="logos/phone.svg" alt="phone" />
                 <h1 className="2xl:text-3xl xl:text-2xl text-xl font-semibold text-white">
-                  Phone Number
+                  {t("contact.quickInfos.phoneNumber")}
                 </h1>
               </div>
             }
@@ -116,42 +121,42 @@ function SectionContact() {
                   alt="location pointer"
                 />
                 <h1 className="2xl:text-3xl xl:text-2xl text-xl font-semibold text-white">
-                  Sector
+                  {t("contact.quickInfos.researchLocation")}
                 </h1>
               </div>
             }
             className="h-full text-center hidden lg:inline"
           >
-            Nantes and periphery, Cholet, Saint-Nazaire
+            {t("contact.quickInfos.locations")}
           </Card>
           <Card
             customTitle={
               <h1 className="w-fit 2xl:text-5xl xl:text-4xl lg:text-3xl text-4xl font-semibold bg-gradient-to-r from-[#a855f7f2] from-30% to-white to-80% bg-clip-text text-transparent pb-1">
-                Let's work together !
+                {t("contact.contactForm.title")}
               </h1>
             }
-            cardSubTitle="Interested in my profile or have an opportunity to discuss ? I'd be happy to hear from you and explore how can I contribute to your team."
+            cardSubTitle={t("contact.contactForm.subtitle")}
             className="h-full row-span-3 lg:col-span-2 col-span-3 pt-5 mx-0 w-full"
           >
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
                   name="name"
-                  placeholder="Name / Firstname*"
+                  placeholder={t("contact.contactForm.placeholderName") + "*"}
                   className="bg-white/5 border border-white/10 p-3 rounded-lg"
                   required
                 />
 
                 <input
                   name="email"
-                  placeholder="Email*"
+                  placeholder={t("contact.contactForm.placeholderEmail") + "*"}
                   className="bg-white/5 border border-white/10 p-3 rounded-lg"
                   required
                 />
 
                 <input
                   name="phone"
-                  placeholder="Phone (optional)"
+                  placeholder={t("contact.contactForm.placeholderPhone")}
                   className="bg-white/5 border border-white/10 p-3 rounded-lg md:col-span-2"
                 />
 
@@ -159,7 +164,9 @@ function SectionContact() {
 
                 <textarea
                   name="message"
-                  placeholder="Your message..."
+                  placeholder={
+                    t("contact.contactForm.placeholderMessage") + "*"
+                  }
                   rows={rows}
                   className="bg-white/5 border border-white/10 p-3 rounded-lg md:col-span-2"
                   required
@@ -193,10 +200,10 @@ function SectionContact() {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         ></path>
                       </svg>
-                      Sending...
+                      {t("contact.contactForm.ctaWait")}
                     </>
                   ) : (
-                    "Send"
+                    t("contact.contactForm.cta")
                   )}
                 </button>
               </div>
@@ -224,11 +231,11 @@ function SectionContact() {
                     <div className="text-5xl">✔</div>
 
                     <p className="text-lg font-medium text-emerald-300">
-                      Message sent successfully
+                      {t("contact.contactForm.successMessage")}
                     </p>
 
                     <p className="text-sm text-emerald-200/70">
-                      I'll get back to you as soon as possible.
+                      {t("contact.contactForm.successComplement")}
                     </p>
                   </div>
                 </div>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   id?: string;
@@ -29,6 +30,7 @@ function Card({
   cardFooter,
   className,
 }: Props) {
+  const { t } = useTranslation();
   const contentRef = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
   const [isOverflowing, setIsOverflowing] = useState(false);
@@ -49,7 +51,8 @@ function Card({
 
   return (
     <div
-      className={`${className} flex h-fit flex-col rounded-2xl bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.3),rgba(255,255,255,0.1))] backdrop-blur-xl border border-white/10`}
+      className={`${className} card
+`}
       id={id}
     >
       {pulse && (
@@ -84,7 +87,7 @@ function Card({
           </h2>
         )}
         {cardSubTitle && (
-          <div className="text-sm text-white/60">{cardSubTitle}</div>
+          <div className="text-sm text-white/60 indent-0">{cardSubTitle}</div>
         )}
       </div>
 
@@ -146,7 +149,9 @@ function Card({
                 >
                   ▼
                 </motion.div>{" "}
-                {expanded ? "Show less" : "Read more"}
+                {expanded
+                  ? t("card.accordeonSchrink")
+                  : t("card.accordeonExpand")}
               </button>
             )}
           </div>

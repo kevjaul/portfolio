@@ -1,8 +1,10 @@
+import { Trans, useTranslation } from "react-i18next";
 import FadeIn from "./animations/FadeIn";
 import Card from "./Card";
 import TechCarousel from "./TechCarousel";
 
 function SectionProjects() {
+  const { t } = useTranslation();
   type Techs = { name: string; subtitle: string; iconUrl: string };
   const mainProjectTechs: Techs[] = [
     {
@@ -108,122 +110,112 @@ function SectionProjects() {
     },
   ];
   return (
-    <section id="projects">
+    <section
+      id={t("sections.projects").toLowerCase()}
+      className="scroll-mt-[100px] [content-visibility:auto]"
+    >
       <h1 className="text-6xl highlight font-bold text-center md:mb-0 mb-4">
-        Projects
+        {t("sections.projects")}
       </h1>
       <div className="grid grid-cols-2 grid-rows-1 gap-4 xl:mx-30 md:mx-10 mx-4 ">
         <div className="lg:col-span-1 col-span-2 text-center xl:m-10 m-0">
-          <FadeIn direction="left" slideLenght={140}>
-            <h3 className="text-3xl text-white underline">Featured Project</h3>
-            <Card
-              cardTitle="Application Credit Management API"
-              cardSubTitle={<TechCarousel techs={mainProjectTechs} />}
-              cardImage="token-api-java.png"
-              ctaRedirect="http://token-api-java-env.eba-cyz3fx3h.eu-west-1.elasticbeanstalk.com/swagger-ui/index.html"
-              ctaMessage={
-                <>
-                  <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent lg:text-5xl md:text-4xl sm:text-5xl text-4xl leading-none">
-                    &#x25CF;
-                  </span>{" "}
-                  Live on AWS →
-                </>
-              }
-              className="mt-4 max-h-[1000px] lg:max-w-[fit-content] indent-8 text-justify"
-              id="token-api-java"
-              pulse
-            >
-              This project is a Spring Boot backend API focused on secure token
-              and application management. It features API key authentication,
-              structured request handling, and rate limiting to control usage
-              per client. Built with a clean layered architecture, it is
-              designed with production deployment and CI/CD integration in mind,
-              making it suitable for real-world cloud environments.
-            </Card>
+          <FadeIn direction="left" slideLength={140}>
+            <h3 className="text-3xl text-white underline">
+              {t("projects.featuredProject.title")}
+            </h3>
+            <div className="will-change-transform">
+              <Card
+                cardTitle={t("projects.featuredProject.cardTitle")}
+                cardSubTitle={<TechCarousel techs={mainProjectTechs} />}
+                cardImage="token-api-java.png"
+                ctaRedirect="http://token-api-java-env.eba-cyz3fx3h.eu-west-1.elasticbeanstalk.com/swagger-ui/index.html"
+                ctaMessage={
+                  <>
+                    <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent lg:text-5xl md:text-4xl sm:text-5xl text-4xl leading-none">
+                      &#x25CF;
+                    </span>
+                    {t("projects.featuredProject.cta")} →
+                  </>
+                }
+                className="mt-4 max-h-[1000px] lg:max-w-[fit-content] indent-8 text-justify"
+                id="token-api-java"
+                pulse
+              >
+                {t("projects.featuredProject.projectDescription")}
+              </Card>
+            </div>
           </FadeIn>
         </div>
         <div className="xl:my-10 md:mx-10 lg:col-span-1 col-span-2">
           <h3 className="text-3xl text-white underline mb-3 text-center">
-            Other Projects
+            {t("projects.otherProjects.title")}
           </h3>
-          <div className="grid grid-cols-2 grid-rows-2 gap-4 ">
-            <FadeIn
-              direction="right"
-              slideLenght={140}
-              className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
-            >
-              <Card
-                cardTitle="CRM Legacy System Enhancement (Internship)"
-                cardSubTitle={<TechCarousel techs={crmProjectTechs} />}
-                cardImage="temp"
-                textExpansion={true}
-                className="indent-8 text-justify"
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
+            <div className="flex flex-col gap-4 sm:flex-1 sm:w-[48%]">
+              <FadeIn
+                direction="right"
+                slideLength={140}
+                className="sm:mx-0 mx-10"
               >
-                During this internship, I contributed to the evolution of a
-                long-standing CRM platform by implementing{" "}
-                <span className="font-bold">new backend services</span>,
-                integrating third-party REST APIs,{" "}
-                <span className="font-bold">
-                  improving the CI/CD pipeline, and reducing technical debt
-                </span>
-                . A major contribution was the design and implementation of a{" "}
-                <span className="font-bold">
-                  secure token-based access system integrated
-                </span>{" "}
-                into the existing architecture.
-              </Card>
-            </FadeIn>
-            <FadeIn
-              direction="right"
-              slideLenght={140}
-              className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
-            >
-              <Card
-                cardTitle="CI/CD & Kubernetes monitoring plateform"
-                cardSubTitle={<TechCarousel techs={metricsProjectTechs} />}
-                cardImage="/metrics_project/monitoringCard.svg"
-                textExpansion={true}
-                className="indent-8 text-justify"
+                <div className="will-change-transform">
+                  <Card
+                    cardTitle={t("projects.otherProjects.firstCard.title")}
+                    cardSubTitle={<TechCarousel techs={crmProjectTechs} />}
+                    cardImage="temp"
+                    textExpansion={true}
+                    className="indent-8 text-justify"
+                  >
+                    <Trans
+                      i18nKey="projects.otherProjects.firstCard.description"
+                      components={[<b />]}
+                    />
+                  </Card>
+                </div>
+              </FadeIn>
+              <FadeIn
+                direction="right"
+                slideLength={140}
+                className="sm:mx-0 mx-10"
               >
-                A DevOps-focused project centered on{" "}
-                <span className="font-bold">CI/CD automation</span>, Kubernetes
-                orchestration, and observability. The pipeline automatically{" "}
-                <span className="font-bold">
-                  deploys Dockerized applications to a Kubernetes cluster
-                </span>{" "}
-                while Grafana dashboards{" "}
-                <span className="font-bold">
-                  monitor both application metrics and software development KPIs
-                </span>
-                , providing continuous feedback on system health and team
-                productivity.
-              </Card>
-            </FadeIn>
-            <FadeIn
-              direction="right"
-              slideLenght={140}
-              className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
-            >
-              <Card
-                cardTitle="Secure File Vault System"
-                cardSubTitle={<TechCarousel techs={cryptoProjectTechs} />}
-                cardImage="/keyVault_project/vaultCard.png"
-                textExpansion={true}
-                className="indent-8 text-justify"
+                <div className="will-change-transform">
+                  <Card
+                    cardTitle={t("projects.otherProjects.thirdCard.title")}
+                    cardSubTitle={<TechCarousel techs={cryptoProjectTechs} />}
+                    cardImage="/keyVault_project/vaultCard.png"
+                    textExpansion={true}
+                    className="indent-8 text-justify"
+                  >
+                    <Trans
+                      i18nKey="projects.otherProjects.thirdCard.description"
+                      components={[<b />]}
+                    />
+                  </Card>
+                </div>
+              </FadeIn>
+            </div>
+
+            <div className="flex flex-col gap-4 sm:flex-1 sm:w-[48%]">
+              <FadeIn
+                direction="right"
+                slideLength={140}
+                className="sm:mx-0 mx-10"
               >
-                A distributed secure file vault built entirely in Python,
-                featuring a custom{" "}
-                <span className="font-bold">
-                  Public Key Infrastructure (PKI)
-                </span>{" "}
-                ,certificate issuance, mutual authentication using a{" "}
-                <span className="font-bold">
-                  Zero-Knowledge Proof protocol{" "}
-                </span>
-                , and end-to-end encryption for{" "}
-                <span className="font-bold"> encrypted file storage</span> .
-              </Card>
-            </FadeIn>
+                <div className="will-change-transform">
+                  <Card
+                    cardTitle={t("projects.otherProjects.secondCard.title")}
+                    cardSubTitle={<TechCarousel techs={metricsProjectTechs} />}
+                    cardImage="/metrics_project/monitoringCard.svg"
+                    textExpansion={true}
+                    className="indent-8 text-justify"
+                  >
+                    <Trans
+                      i18nKey="projects.otherProjects.secondCard.description"
+                      components={[<b />]}
+                    />
+                  </Card>
+                </div>
+              </FadeIn>
+            </div>
           </div>
         </div>
       </div>
