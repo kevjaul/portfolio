@@ -150,67 +150,72 @@ function SectionProjects() {
           <h3 className="text-3xl text-white underline mb-3 text-center">
             {t("projects.otherProjects.title")}
           </h3>
-          <div className="grid grid-cols-2 grid-rows-2 gap-4 ">
-            <FadeIn
-              direction="right"
-              slideLength={140}
-              className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
-            >
-              <div className="will-change-transform">
-                <Card
-                  cardTitle={t("projects.otherProjects.firstCard.title")}
-                  cardSubTitle={<TechCarousel techs={crmProjectTechs} />}
-                  cardImage="temp"
-                  textExpansion={true}
-                  className="indent-8 text-justify"
-                >
-                  <Trans
-                    i18nKey="projects.otherProjects.firstCard.description"
-                    components={[<b />]}
-                  />
-                </Card>
-              </div>
-            </FadeIn>
-            <FadeIn
-              direction="right"
-              slideLength={140}
-              className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
-            >
-              <div className="will-change-transform">
-                <Card
-                  cardTitle={t("projects.otherProjects.secondCard.title")}
-                  cardSubTitle={<TechCarousel techs={metricsProjectTechs} />}
-                  cardImage="/metrics_project/monitoringCard.svg"
-                  textExpansion={true}
-                  className="indent-8 text-justify"
-                >
-                  <Trans
-                    i18nKey="projects.otherProjects.secondCard.description"
-                    components={[<b />]}
-                  />
-                </Card>
-              </div>
-            </FadeIn>
-            <FadeIn
-              direction="right"
-              slideLength={140}
-              className="col-span-2 sm:col-span-1 sm:mx-0 mx-10"
-            >
-              <div className="will-change-transform">
-                <Card
-                  cardTitle={t("projects.otherProjects.thirdCard.title")}
-                  cardSubTitle={<TechCarousel techs={cryptoProjectTechs} />}
-                  cardImage="/keyVault_project/vaultCard.png"
-                  textExpansion={true}
-                  className="indent-8 text-justify"
-                >
-                  <Trans
-                    i18nKey="projects.otherProjects.thirdCard.description"
-                    components={[<b />]}
-                  />
-                </Card>
-              </div>
-            </FadeIn>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
+            <div className="flex flex-col gap-4 sm:flex-1 sm:w-[48%]">
+              <FadeIn
+                direction="right"
+                slideLength={140}
+                className="sm:mx-0 mx-10"
+              >
+                <div className="will-change-transform">
+                  <Card
+                    cardTitle={t("projects.otherProjects.firstCard.title")}
+                    cardSubTitle={<TechCarousel techs={crmProjectTechs} />}
+                    cardImage="temp"
+                    textExpansion={true}
+                    className="indent-8 text-justify"
+                  >
+                    <Trans
+                      i18nKey="projects.otherProjects.firstCard.description"
+                      components={[<b />]}
+                    />
+                  </Card>
+                </div>
+              </FadeIn>
+              <FadeIn
+                direction="right"
+                slideLength={140}
+                className="sm:mx-0 mx-10"
+              >
+                <div className="will-change-transform">
+                  <Card
+                    cardTitle={t("projects.otherProjects.thirdCard.title")}
+                    cardSubTitle={<TechCarousel techs={cryptoProjectTechs} />}
+                    cardImage="/keyVault_project/vaultCard.png"
+                    textExpansion={true}
+                    className="indent-8 text-justify"
+                  >
+                    <Trans
+                      i18nKey="projects.otherProjects.thirdCard.description"
+                      components={[<b />]}
+                    />
+                  </Card>
+                </div>
+              </FadeIn>
+            </div>
+
+            <div className="flex flex-col gap-4 sm:flex-1 sm:w-[48%]">
+              <FadeIn
+                direction="right"
+                slideLength={140}
+                className="sm:mx-0 mx-10"
+              >
+                <div className="will-change-transform">
+                  <Card
+                    cardTitle={t("projects.otherProjects.secondCard.title")}
+                    cardSubTitle={<TechCarousel techs={metricsProjectTechs} />}
+                    cardImage="/metrics_project/monitoringCard.svg"
+                    textExpansion={true}
+                    className="indent-8 text-justify"
+                  >
+                    <Trans
+                      i18nKey="projects.otherProjects.secondCard.description"
+                      components={[<b />]}
+                    />
+                  </Card>
+                </div>
+              </FadeIn>
+            </div>
           </div>
         </div>
       </div>
