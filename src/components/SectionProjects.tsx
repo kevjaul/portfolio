@@ -112,7 +112,7 @@ function SectionProjects() {
   return (
     <section
       id={t("sections.projects").toLowerCase()}
-      className="scroll-mt-[100px] [content-visibility:auto]"
+      className="scroll-mt-[100px] [content-visibility:auto] py-10"
     >
       <h1 className="text-6xl highlight font-bold text-center md:mb-0 mb-4">
         {t("sections.projects")}

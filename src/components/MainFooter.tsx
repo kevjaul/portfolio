@@ -9,7 +9,7 @@ function MainFooter() {
     t("sections.contact"),
   ];
   return (
-    <footer className="w-full mt-20 border-t border-white/10 bg-white/5 backdrop-blur-md">
+    <footer className="w-full border-t border-white/10 bg-white/5 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row gap-8 text-white/80">
         <div className="flex flex-col gap-2 sm:w-1/3 w-full">
           <h3 className="text-white text-xl font-semibold tracking-wide">

@@ -9,7 +9,7 @@ function HomeSection() {
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    const offset = element ? 100 : 0;
+    const offset = element ? 200 : 0;
     const y =
       (element?.getBoundingClientRect()?.top || 0) + window.scrollY - offset;
     window.scrollTo({ top: y, behavior: "smooth" });
@@ -18,7 +18,7 @@ function HomeSection() {
   return (
     <section
       id={t("sections.home").toLowerCase()}
-      className="scroll-mt-[100px] [content-visibility:auto]"
+      className="scroll-mt-[100px] [content-visibility:auto] pb-10"
     >
       <FadeIn direction="up">
         <div className="flex flex-col items-center mt-[100px] mb-15">

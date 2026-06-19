@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Animations.scss";
+
 interface Props {
   text: string[];
   speed?: number;
