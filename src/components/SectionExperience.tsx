@@ -45,6 +45,12 @@ function SectionExperience() {
       subtitle: "IAM - Consulting - XML",
       description: `Temp`,
     },
+    {
+      id: 1,
+      title: "Consultant IAM (Stage)",
+      subtitle: "IAM - Consulting - XML",
+      description: `Temp`,
+    },
   ];
   const [displayedCards, setDisplayedCards] = useState(professionnelCardsInfos);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -55,7 +61,7 @@ function SectionExperience() {
       if (!containerRef.current) return;
 
       const rect = containerRef.current.getBoundingClientRect();
-      const progress = Math.min(
+      const globalProgress = Math.min(
         1,
         Math.max(
           0,
@@ -63,17 +69,20 @@ function SectionExperience() {
         ),
       );
 
-      setScrollProgress(progress);
+      setScrollProgress(globalProgress);
 
-      const index = Math.floor(progress * formationCardsInfos.length);
-      setActiveCard(Math.min(formationCardsInfos.length - 1, index));
+      const index = Math.min(
+        displayedCards.length - 1,
+        Math.floor(globalProgress * displayedCards.length + 0.15),
+      );
+      setActiveCard(Math.min(displayedCards.length - 1, index));
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [formationCardsInfos.length]);
+  }, [displayedCards.length]);
 
   return (
     <section
@@ -131,9 +140,25 @@ function SectionExperience() {
             return (
               <div className="relative w-full flex flex-row gap-4 mb-5 sm:ml-[10%] ml-[3%]">
                 <div className="flex flex-col items-center flex-shrink-0">
-                  <div className="w-4 h-4 rounded-full bg-white/15 mt-2" />
-
-                  <div className="flex-1 w-[3px] bg-white/15 mt-2 h-[95%]" />
+                  <div
+                    className={`w-4 h-4 rounded-full mt-2 transition-all duration-300
+                      ${
+                        state
+                          ? "bg-[#a855f7] shadow-[0_0_12px_rgba(168,85,247,0.8)] scale-110"
+                          : "bg-white/15"
+                      }
+                      ${i === activeCard && "animate-pulse shadow-[0_0_18px_rgba(168,85,247,0.6)]"}
+                    `}
+                  />
+                  <div className="relative flex-1 w-[3px] mt-2 h-[95%] bg-white/10 overflow-hidden rounded-full">
+                    <div
+                      className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#a855f7] via-[#c084fc] to-transparent transition-all duration-300"
+                      style={{
+                        height: `${state ? ((scrollProgress - (1 / displayedCards.length) * i) * 100) / (1 / displayedCards.length) : 0}%`,
+                        boxShadow: "0 0 12px rgba(168,85,247,0.6)",
+                      }}
+                    />
+                  </div>{" "}
                 </div>
                 <motion.div
                   key={i}
@@ -153,7 +178,7 @@ function SectionExperience() {
                     cardSubTitle={cardInfos.subtitle}
                     cardFooter={
                       <div className="mt-4 text-xs text-white/30">
-                        Experience {i + 1} / {formationCardsInfos.length}
+                        Experience {i + 1} / {displayedCards.length}
                       </div>
                     }
                     className="shadow-[0_0_40px_rgba(168,85,247,0.15)] mt-5"
