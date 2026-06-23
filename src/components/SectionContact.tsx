@@ -100,7 +100,7 @@ function SectionContact() {
                   </h1>
                 </div>
               }
-              className="h-full text-center hidden lg:inline"
+              className="h-full text-center hidden lg:inline shadow-[0_0_40px_rgba(168,85,247,0.25)]"
             >
               kevin31072002@gmail.com
             </Card>
@@ -118,7 +118,7 @@ function SectionContact() {
                   </h1>
                 </div>
               }
-              className="h-full text-center hidden lg:inline"
+              className="h-full text-center hidden lg:inline shadow-[0_0_40px_rgba(168,85,247,0.25)]"
             >
               +33 7 50 61 95 51
             </Card>
@@ -136,7 +136,7 @@ function SectionContact() {
                   </h1>
                 </div>
               }
-              className="h-full text-center hidden lg:inline"
+              className="h-full text-center hidden lg:inline shadow-[0_0_40px_rgba(168,85,247,0.25)]"
             >
               {t("contact.quickInfos.locations")}
             </Card>
@@ -147,7 +147,7 @@ function SectionContact() {
                 </h1>
               }
               cardSubTitle={t("contact.contactForm.subtitle")}
-              className="h-full row-span-3 lg:col-span-2 col-span-3 pt-5 mx-0 w-full"
+              className="h-full row-span-3 lg:col-span-2 col-span-3 pt-5 mx-0 w-full shadow-[0_0_40px_rgba(168,85,247,0.25)]"
             >
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

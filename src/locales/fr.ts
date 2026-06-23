@@ -19,7 +19,7 @@ const fr = {
     presentation: `
     Passionné par la conception d'applications web modernes. 
     Je me spécialise en <0>Java/SpringBoot, React et DevOps</0> pour 
-    delivrer des applications maintenables.
+    délivrer des applications maintenables.
     `,
     aboutme: {
       title: "À propos de moi",
@@ -103,7 +103,7 @@ const fr = {
     contactForm: {
       title: "Travaillons ensemble !",
       subtitle:
-        "Mon profil vous interresse ou vous voulez discuter d'une opportunité ? Je serais ravie d'échanger avec vous et étudier ensemble comment je peux contribuer à votre equipe.",
+        "Mon profil vous interresse ou vous voulez discuter d'une opportunité ? Je serais ravi d'échanger avec vous et étudier ensemble comment je peux contribuer à votre equipe.",
       placeholderName: "Nom / Prénom",
       placeholderEmail: "Email",
       placeholderPhone: "N° Téléphone (optionnel)",
