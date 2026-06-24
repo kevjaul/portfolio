@@ -1,5 +1,5 @@
 import HomeSection from "./HomeSection";
-import SectionExperience from "./SectionExperience";
+import SectionExperiences from "./SectionExperiences";
 import SectionSeparator from "./SectionSeparator";
 import SectionProjects from "./SectionProjects";
 import SectionContact from "./SectionContact";
@@ -10,7 +10,7 @@ function MainContent() {
     <>
       <HomeSection />
       <SectionSeparator />
-      <SectionExperience />
+      <SectionExperiences />
       <SectionSeparator />
       <SectionProjects />
       <SectionSeparator />

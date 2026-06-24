@@ -4,7 +4,7 @@ function MainFooter() {
   const { t } = useTranslation();
   const sections = [
     t("sections.home"),
-    t("sections.experience"),
+    t("sections.experiences"),
     t("sections.projects"),
     t("sections.contact"),
   ];

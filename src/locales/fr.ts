@@ -1,7 +1,7 @@
 const fr = {
   sections: {
     home: "Accueil",
-    experience: "Expérience",
+    experiences: "Expériences",
     projects: "Projets",
     contact: "Contact",
   },
@@ -58,7 +58,7 @@ const fr = {
     },
   },
 
-  experience: {
+  experiences: {
     wip: "En cours de développement",
   },
 
