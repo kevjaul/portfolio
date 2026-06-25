@@ -40,7 +40,7 @@ const formationCardsInfos: CardsInfos[] = [
       Certificats numériques, autorité de certification et PKI\n
       Exploitation de vulnérabilités systèmes et applicatives\n
       RGPD: registres de traitements, violations de données; étude de conformité\n
-      Analyse post-incident, analyse de risque; élaboration d’une PSSI (PRA/PCA)\n
+      Analyse post-incident, analyse de risque, élaboration d’une PSSI (PRA/PCA)\n
     `,
     techs: [],
   },
@@ -62,8 +62,7 @@ const professionnelCardsInfos: CardsInfos[] = [
     title: "Consultant IAM (Stage)",
     subtitle: "6 mois - CGI Business Consulting - Puteaux",
     description: `Intégration de 4 applications à une solution IAM via Usercube et XML\n
-      Animation d’ateliers techniques réguliers avec 2 chefs de projet client:
-      Pilotage, planning, estimation\n
+      Animation d’ateliers techniques réguliers avec 2 chefs de projet client: Pilotage, planning, estimation\n
       Mise en place de processus d’intégration et industrialisation réduisant de moitié le temps moyen d’intégration d’une application\n
       Etude de solutions d’anonymisation et élaboration d’une procédure déroulable en moins de 15min sur les bases de développement locales`,
     explenations:
@@ -216,7 +215,7 @@ function SectionExperiences() {
 
         <div className="w-full flex flex-row gap-4 items-start">
           <div
-            className="w-full 2xl:w-[45%] lg:w-2/3 self-start min-h-[200vh]"
+            className="w-full 2xl:w-[45%] lg:w-[55%] self-start min-h-[200vh]"
             ref={containerRef}
           >
             <div className="sticky self-start top-[210px] pb-[100px]">
@@ -283,11 +282,11 @@ function SectionExperiences() {
             </div>
           </div>
           <div
-            className="sticky top-[210px] hidden lg:inline lg:mr-[10%] content-center 2xl:w-[55%] lg:w-1/3"
+            className="sticky top-[210px] hidden lg:inline lg:mr-[2%] content-center 2xl:w-[55%] lg:w-[45%] pb-[120px]"
             ref={gearRef}
           >
             {activeCard >= 0 && (
-              <div className="relative h-[500px] overflow-hidden">
+              <div className="relative h-[406px] overflow-y-visible overflow-x-clip">
                 <FloatingIcons
                   techs={displayedCards[activeCard]?.techs ?? []}
                 />
@@ -295,7 +294,7 @@ function SectionExperiences() {
                 <AnimatePresence mode="sync">
                   <motion.div
                     key={activeCard}
-                    className="absolute inset-0 z-10 flex flex-col justify-center items-center px-10 text-center"
+                    className="absolute inset-0 z-10 flex flex-col justify-start items-center px-10 text-center transform-gpu will-change-transform"
                     initial={{
                       x: 500,
                       y: 220,
@@ -323,14 +322,27 @@ function SectionExperiences() {
                     }}
                   >
                     <p className="text-white text-3xl">What I learned</p>
-
-                    <h3 className="mt-6 text-2xl font-semibold highlight">
-                      {displayedCards[activeCard].title}
-                    </h3>
-
-                    <p className="text-white/60 leading-relaxed mt-5 max-w-[450px]">
-                      {displayedCards[activeCard].description}
-                    </p>
+                    <div className="mt-4">
+                      <h3 className="mt-6 mb-2 text-2xl font-semibold highlight">
+                        {displayedCards[activeCard].title}
+                      </h3>
+                      <ul className="whitespace-pre-line list-none text-white/60 flex flex-col items-center">
+                        {displayedCards[activeCard].description
+                          .split("\n")
+                          .filter((line) => line.trim() !== "")
+                          .map((line, i, arr) => (
+                            <li
+                              key={i}
+                              className="w-fit overflow-visible xl:text-lg text-base"
+                            >
+                              {line}
+                              {i !== arr.length - 1 && (
+                                <div className="h-[2px] lg:my-2 mt-1 bg-white/20 w-[60%] justify-self-center" />
+                              )}
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
                   </motion.div>
                 </AnimatePresence>
               </div>
