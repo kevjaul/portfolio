@@ -5,7 +5,7 @@ import TechCarousel from "./TechCarousel";
 
 function SectionProjects() {
   const { t } = useTranslation();
-  type Techs = { name: string; subtitle: string; iconUrl: string };
+  type Techs = { name: string; subtitle?: string; iconUrl: string };
   const mainProjectTechs: Techs[] = [
     {
       name: "Spring",
@@ -16,19 +16,16 @@ function SectionProjects() {
     { name: "JUnit", subtitle: "", iconUrl: "logos/junit.svg" },
     {
       name: "Postgre",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
     },
     {
       name: "AWS",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
     },
     {
       name: "Git",
-      subtitle: "",
       iconUrl: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg",
     },
   ];
@@ -36,25 +33,21 @@ function SectionProjects() {
   const crmProjectTechs: Techs[] = [
     {
       name: "PHP",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
     },
     {
       name: "Javascript",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
     },
     {
       name: "Bash",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/4/4b/Bash_Logo_Colored.svg",
     },
     {
       name: "MySQL",
-      subtitle: "",
       iconUrl: "https://icon.icepanel.io/Technology/svg/MySQL.svg",
     },
     {
@@ -68,25 +61,21 @@ function SectionProjects() {
   const metricsProjectTechs: Techs[] = [
     {
       name: "Javascript",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
     },
     {
       name: "Kubernetes",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg",
     },
     {
       name: "Grafana",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/3/3b/Grafana_icon.svg",
     },
     {
       name: "GitLab",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg",
     },
@@ -94,7 +83,6 @@ function SectionProjects() {
   const cryptoProjectTechs: Techs[] = [
     {
       name: "Python",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
     },

@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+
 import {
   motion,
   useScroll,
@@ -19,97 +20,23 @@ type CardsInfos = {
   techs: string[];
 };
 
-const formationCardsInfos: CardsInfos[] = [
-  {
-    id: 0,
-    title: "Ingénieur en Informatique",
-    subtitle: "Informatique et Systèmes d'Information",
-    description: `Développement web utilisant le framework Symfony / PHP / Javascript\n
-      Architecture logicielle, micro-services et résilience des systèmes\n
-      UX/UI et accessibilité des interfaces\n
-      Méthodologies et outils DevOps\n
-      Introduction à la conception d'IA, modèles et réseaux neuronaux\n
-      `,
-    techs: [],
-  },
-  {
-    id: 1,
-    title: "Master en Cybersécurité",
-    subtitle: "Sécurité des Systèmes d'Information",
-    description: `Cryptographie et architectures sécurisées: RSA, protocole d’échange de clés\n
-      Certificats numériques, autorité de certification et PKI\n
-      Exploitation de vulnérabilités systèmes et applicatives\n
-      RGPD: registres de traitements, violations de données; étude de conformité\n
-      Analyse post-incident, analyse de risque, élaboration d’une PSSI (PRA/PCA)\n
-    `,
-    techs: [],
-  },
-  {
-    id: 2,
-    title: "DUT Informatique",
-    subtitle: "Informatique",
-    description: `
-    Algorithmie, complexitée et structure de données\n 
-    Développement d'application en programmation orientée objet (POO)\n
-    Conception et gestion de bases de données relationnelles\n
-    `,
-    techs: [],
-  },
-];
-const professionnelCardsInfos: CardsInfos[] = [
-  {
-    id: 0,
-    title: "Consultant IAM (Stage)",
-    subtitle: "6 mois - CGI Business Consulting - Puteaux",
-    description: `Intégration de 4 applications à une solution IAM via Usercube et XML\n
-      Animation d’ateliers techniques réguliers avec 2 chefs de projet client: Pilotage, planning, estimation\n
-      Mise en place de processus d’intégration et industrialisation réduisant de moitié le temps moyen d’intégration d’une application\n
-      Etude de solutions d’anonymisation et élaboration d’une procédure déroulable en moins de 15min sur les bases de développement locales`,
-    explenations:
-      "Learned how to design resilient systems and think beyond feature implementation.",
-    techs: [
-      "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
-      "https://icon.icepanel.io/Technology/svg/MySQL.svg",
-    ],
-  },
-  {
-    id: 1,
-    title: "Développeur Fullstack (Stage)",
-    subtitle: "6 mois - SOeMAN Group - Clermont Ferrand",
-    description: `Extension du pipeline CI/CD en ajoutant l’exécution automatique des tests et un support multi-plateforme\n
-      Intégration d’APIs REST dans une architecture existante: Brevo, INSEE\n
-      Conception d’un système d’accès sécurisé par jetons individuels\n
-      Refonte de composants frontend et backend`,
-    explenations: "Another random sentence",
-    techs: [
-      "https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg",
-    ],
-  },
-  {
-    id: 2,
-    title: "Développeur Logiciel (Stage)",
-    subtitle: "6 mois - Atypik'Habitat SARL - La Rochelle",
-    description: `Développement d’un client lourd de suivi d'appels d'offres en C#/.Net avec documentation technique`,
-    explenations: "Another random sentence",
-    techs: [
-      "https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg",
-    ],
-  },
-];
+type ExperienceType = "professional" | "formation";
 
 function SectionExperiences() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
   const [activeCard, setActiveCard] = useState(0);
-  const experienceTypeSwitch = ["Professionnel", "Formation"];
-  const [selected, setSelected] = useState("Professionnel");
-  const [displayedCards, setDisplayedCards] = useState(professionnelCardsInfos);
+  const experienceTypeSwitch = [
+    {
+      id: "professional",
+      label: t("experiences.professional.title"),
+    },
+    {
+      id: "formation",
+      label: t("experiences.formation.title"),
+    },
+  ];
+  const [selected, setSelected] = useState<ExperienceType>("professional");
   const containerRef = useRef<HTMLDivElement | null>(null);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -122,6 +49,112 @@ function SectionExperiences() {
     offset: ["start start", "end start"],
   });
   const sectionHeaderY = useTransform(scrollCards, [0.57, 1], [0, -720]);
+  const formationCardsInfos: CardsInfos[] = [
+    {
+      id: 0,
+      title: t("experiences.formation.engineer.title"),
+      subtitle: t("experiences.formation.engineer.subInfos"),
+      description: t("experiences.formation.engineer.description"),
+      techs: useMemo(
+        () => [
+          "./logos/java.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/a/a7/Docker-svgrepo-com.svg",
+          "https://icon.icepanel.io/Technology/svg/MySQL.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+          "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/4/4b/Bash_Logo_Colored.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
+        ],
+        [],
+      ),
+    },
+    {
+      id: 1,
+      title: t("experiences.formation.master.title"),
+      subtitle: t("experiences.formation.master.subInfos"),
+      description: t("experiences.formation.master.description"),
+      techs: useMemo(
+        () => [
+          "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+        ],
+        [],
+      ),
+    },
+    {
+      id: 2,
+      title: t("experiences.formation.dut.title"),
+      subtitle: t("experiences.formation.dut.subInfos"),
+      description: t("experiences.formation.dut.description"),
+      techs: useMemo(
+        () => [
+          "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/a/a7/Docker-svgrepo-com.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/d/d0/Cib-symfony_%28CoreUI_Icons_v1.0.0%29.svg",
+        ],
+        [],
+      ),
+    },
+  ];
+  const professionnelCardsInfos: CardsInfos[] = [
+    {
+      id: 0,
+      title: t("experiences.professional.recentInternship.title"),
+      subtitle: t("experiences.professional.recentInternship.subInfos"),
+      description: t("experiences.professional.recentInternship.description"),
+      techs: useMemo(
+        () => [
+          "./logos/NIM.png",
+          "https://upload.wikimedia.org/wikipedia/commons/a/a1/Powershell_128.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/4/41/Microsoft_SQL_Server_2025_icon.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg",
+        ],
+        [],
+      ),
+    },
+    {
+      id: 1,
+      title: t("experiences.professional.fullstackInternship.title"),
+      subtitle: t("experiences.professional.fullstackInternship.subInfos"),
+      description: t(
+        "experiences.professional.fullstackInternship.description",
+      ),
+      techs: useMemo(
+        () => [
+          "./logos/cypress.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg",
+          "https://icon.icepanel.io/Technology/svg/MySQL.svg",
+        ],
+        [],
+      ),
+    },
+    {
+      id: 2,
+      title: t("experiences.professional.dutInternship.title"),
+      subtitle: t("experiences.professional.dutInternship.subInfos"),
+      description: t("experiences.professional.dutInternship.description"),
+      techs: useMemo(
+        () => [
+          "https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg",
+          "./logos/miro.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/9/97/Sqlite-square-icon.svg",
+        ],
+        [],
+      ),
+    },
+  ];
+  const displayedCards =
+    selected === "professional" ? professionnelCardsInfos : formationCardsInfos;
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     const offset = element ? 100 : 0;
@@ -179,31 +212,26 @@ function SectionExperiences() {
               <div className="relative flex w-full">
                 {experienceTypeSwitch.map((tab) => (
                   <button
-                    key={tab}
+                    key={tab.id}
                     onClick={() => {
-                      setSelected(tab);
-                      setDisplayedCards(
-                        tab === "Professionnel"
-                          ? professionnelCardsInfos
-                          : formationCardsInfos,
-                      );
+                      setSelected(tab.id as ExperienceType);
                       setActiveCard(0);
                       scrollToSection(t("sections.experiences").toLowerCase());
                     }}
                     className={`relative py-2 text-lg font-medium transition-colors duration-300 w-1/2
                     ${
-                      selected === tab
+                      selected === tab.id
                         ? "text-white"
                         : "text-white/60 hover:text-[#a955f7]/80 hover:cursor-pointer"
                     }
                 `}
                   >
-                    {tab}
+                    {tab.label}
                   </button>
                 ))}
                 <div
                   className={`absolute bottom-0 h-[2px] bg-[#a955f7] transition-all duration-300 ease-out ${
-                    selected === "Professionnel"
+                    selected === "professional"
                       ? "w-2/5 left-[5%]"
                       : "w-[30%] left-3/5"
                   }`}
@@ -246,7 +274,7 @@ function SectionExperiences() {
                       </div>
                     </div>
                     <motion.div
-                      key={i}
+                      key={`${i}-${i18n.language}`}
                       className="relative w-[80%] max-w-[600px] pointer-events-auto h-fit"
                       initial={{
                         opacity: 0.2,
@@ -321,7 +349,11 @@ function SectionExperiences() {
                       ease: [0.22, 1, 0.36, 1],
                     }}
                   >
-                    <p className="text-white text-3xl">What I learned</p>
+                    <p className="text-white text-3xl">
+                      {selected === "professional"
+                        ? t("experiences.professional.eyeCatcher")
+                        : t("experiences.formation.eyeCatcher")}
+                    </p>
                     <div className="mt-4">
                       <h3 className="mt-6 mb-2 text-2xl font-semibold highlight">
                         {displayedCards[activeCard].title}

@@ -36,8 +36,8 @@ function FloatingIcons({ techs }: Props) {
     }));
 
     velocities.current = techs.map(() => ({
-      x: (Math.random() - 0.5) * 2.5,
-      y: (Math.random() - 0.5) * 2.5,
+      x: (Math.random() - 0.5) * 1.5,
+      y: (Math.random() - 0.5) * 1.5,
     }));
 
     let frameId: number;
@@ -55,11 +55,22 @@ function FloatingIcons({ techs }: Props) {
         pos.x += vel.x;
         pos.y += vel.y;
 
-        if (pos.x <= 0 || pos.x >= maxX) {
+        if (pos.x <= 0) {
+          pos.x = 0;
           vel.x *= -1;
         }
 
-        if (pos.y <= 0 || pos.y >= maxY) {
+        if (pos.x >= maxX) {
+          pos.x = maxX;
+          vel.x *= -1;
+        }
+        if (pos.x <= 0) {
+          pos.y = 0;
+          vel.y *= -1;
+        }
+
+        if (pos.y >= maxY) {
+          pos.y = maxY;
           vel.y *= -1;
         }
 

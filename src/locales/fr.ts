@@ -59,7 +59,64 @@ const fr = {
   },
 
   experiences: {
-    wip: "En cours de développement",
+    professional: {
+      title: "Professionnel",
+      eyeCatcher: "Ce que j'ai réalisé",
+      recentInternship: {
+        title: "Consultant IAM (Stage)",
+        subInfos: "6 mois - CGI Business Consulting - Puteaux",
+        description: `Intégration de 4 applications à une solution IAM via Usercube et XML\n
+      Animation d’ateliers techniques réguliers avec 2 chefs de projet client: Pilotage, planning, estimation\n
+      Mise en place de processus d’intégration et industrialisation réduisant de moitié le temps moyen d’intégration d’une application\n
+      Etude de solutions d’anonymisation et élaboration d’une procédure déroulable en moins de 15min sur les bases de développement locales`,
+      },
+      fullstackInternship: {
+        title: "Développeur Fullstack (Stage)",
+        subInfos: "6 mois - SOeMAN Group - Clermont Ferrand",
+        description: `Extension du pipeline CI/CD en ajoutant l’exécution automatique des tests et un support multi-plateforme\n
+      Intégration d’APIs REST dans une architecture existante: Brevo, INSEE\n
+      Conception d’un système d’accès sécurisé par jetons individuels\n
+      Refonte de composants frontend et backend`,
+      },
+      dutInternship: {
+        title: "Développeur Logiciel (Stage)",
+        subInfos: "6 mois - Atypik'Habitat SARL - La Rochelle",
+        description: `Développement d’un client lourd de suivi d'appels d'offres en C#/.Net avec documentation technique`,
+      },
+    },
+    formation: {
+      title: "Formation",
+      eyeCatcher: "Ce que j'ai appris",
+      engineer: {
+        title: "Ingénieur en Informatique",
+        subInfos: "Informatique et Systèmes d'Information",
+        description: `Développement web utilisant le framework Symfony / PHP / Javascript\n
+      Architecture logicielle, micro-services et résilience des systèmes\n
+      UX/UI et accessibilité des interfaces\n
+      Méthodologies et outils DevOps\n
+      Introduction à la conception d'IA, modèles et réseaux neuronaux\n
+      `,
+      },
+      master: {
+        title: "Master en Cybersécurité",
+        subInfos: "Sécurité des Systèmes d'Information",
+        description: `Cryptographie et architectures sécurisées: RSA, protocole d’échange de clés\n
+      Certificats numériques, autorité de certification et PKI\n
+      Exploitation de vulnérabilités systèmes et applicatives\n
+      RGPD: registres de traitements, violations de données, étude de conformité\n
+      Analyse post-incident, analyse de risque, élaboration d’une PSSI (PRA/PCA)\n
+    `,
+      },
+      dut: {
+        title: "DUT Informatique",
+        subInfos: "Informatique",
+        description: `
+    Algorithmie, complexitée et structure de données\n 
+    Développement d'application en programmation orientée objet (POO)\n
+    Conception et gestion de bases de données relationnelles\n
+    `,
+      },
+    },
   },
 
   projects: {

@@ -57,7 +57,68 @@ const en = {
   },
 
   experiences: {
-    wip: "Work in progress",
+    professional: {
+      title: "Professional",
+      eyeCatcher: "What I've done",
+      recentInternship: {
+        title: "IAM Consultant (Internship)",
+        subInfos: "6 months - CGI Business Consulting - Puteaux",
+        description: `
+        Integration of 4 applications into an IAM solution via Usercube and XML\n
+        Regular technical workshops with 2 clients' project managers: Pilotage, planning, estimation\n
+        Implementation of integration and industrialization processes reducing integration time by half\n
+        Study of anonymization solutions and elaboration of a process that can be done in less than 15min on local development databases`,
+      },
+      fullstackInternship: {
+        title: "Fullstack Developer (Internship)",
+        subInfos: "6 months - SOeMAN Group - Clermont Ferrand",
+        description: `
+        Extension of the CI/CD pipeline by adding automatic test execution and multi-platform support\n
+        Integration of REST APIs into an existing architecture: Brevo, INSEE\n
+        Creation of a secure access system using individual tokens\n
+        Refactoring of frontend and backend components`,
+      },
+      dutInternship: {
+        title: "Software Developer (Internship)",
+        subInfos: "6 months - Atypik'Habitat SARL - La Rochelle",
+        description: `
+        Development of a heavy call tracking client in C#/.Net with technical documentation`,
+      },
+    },
+    formation: {
+      title: "Studies",
+      eyeCatcher: "What I've learned",
+      engineer: {
+        title: "Engineer in Computer Science",
+        subInfos: "Computer Science and Information Systems",
+        description: `
+        Development of web applications using Symfony / PHP / Javascript\n
+        Architecture of software, micro-services and resilience of systems\n
+        UX/UI and accessibility of interfaces\n
+        Methodologies and DevOps tools\n
+        Introduction to the design of AI, models and neural networks
+        `,
+      },
+      master: {
+        title: "Master in Cybersecurity",
+        subInfos: "Security of Information Systems",
+        description: `
+        Cryptography and secure architectures: RSA, exchange protocol for keys\n
+        Numerical certificates, certification authority and PKI\n
+        Exploitation of vulnerabilities in systems and applications\n
+        GDPR: data processing registers, data breaches, compliance study\n
+        Post-incident analysis, risk analysis, elaboration of a PSSI (PRA/PCA)`,
+      },
+      dut: {
+        title: "Technology degree in Computer Science",
+        subInfos: "Computer Science",
+        description: `
+        Algorithmic programming, complexity and data structures\n
+        Development of application in object-oriented programming (OOP)\n
+        Development and management of relationaldatabases
+        `,
+      },
+    },
   },
 
   projects: {
