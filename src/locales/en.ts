@@ -125,7 +125,7 @@ const en = {
     featuredProject: {
       title: "Featured Project",
       cardTitle: "Application Credit Management API",
-      cta: "Live on AWS",
+      cta: "Live on AWS (EB + RDS)",
       projectDescription: `
       This project is a Spring Boot backend API focused on secure token
       and application management. It features API key authentication,

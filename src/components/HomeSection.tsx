@@ -84,7 +84,7 @@ function HomeSection() {
                 <Card
                   cardTitle={t("hero.mainFacts.experience.title")}
                   cardSubTitle={t("hero.mainFacts.experience.subtitle")}
-                  className="text-justify"
+                  className="text-justify h-auto"
                 >
                   {t("hero.mainFacts.experience.content")}
                 </Card>
@@ -100,14 +100,14 @@ function HomeSection() {
                       </button>
                     </div>
                   }
-                  className="text-justify"
+                  className="text-justify h-auto"
                 >
                   {t("hero.mainFacts.project.content")}
                 </Card>
                 <Card
                   cardTitle={t("hero.mainFacts.formation.title")}
                   cardSubTitle={t("hero.mainFacts.formation.subtitle")}
-                  className="col-span-2 xl:col-span-1 indent-8 text-justify"
+                  className="col-span-2 xl:col-span-1 indent-8 text-justify h-auto"
                 >
                   {t("hero.mainFacts.formation.content")}
                 </Card>

@@ -116,14 +116,16 @@ function SectionProjects() {
                 cardTitle={t("projects.featuredProject.cardTitle")}
                 cardSubTitle={<TechCarousel techs={mainProjectTechs} />}
                 cardImage="token-api-java.png"
-                ctaRedirect="http://token-api-java-env.eba-cyz3fx3h.eu-west-1.elasticbeanstalk.com/swagger-ui/index.html"
+                ctaRedirect="https://d1aydfl79q48gt.cloudfront.net/swagger-ui/index.html"
                 ctaMessage={
-                  <>
-                    <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent lg:text-5xl md:text-4xl sm:text-5xl text-4xl leading-none">
+                  <p className="indent-0 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.35)_0%,rgba(0,0,0,0.25)_3%,rgba(0,0,0,0.2)_50%,transparent_90%)] pb-4 px-2 overflow-visible">
+                    <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent lg:text-5xl md:text-4xl sm:text-5xl text-4xl">
                       &#x25CF;
                     </span>
-                    {t("projects.featuredProject.cta")} →
-                  </>
+                    <span className="highlight">
+                      {t("projects.featuredProject.cta")} →
+                    </span>
+                  </p>
                 }
                 className="mt-4 max-h-[1000px] lg:max-w-[fit-content] indent-8 text-justify"
                 id="token-api-java"

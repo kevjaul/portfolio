@@ -123,7 +123,7 @@ const fr = {
     featuredProject: {
       title: "Projet Principal",
       cardTitle: "API de gestion de crédit d'utilisation",
-      cta: "Testez par vous-même",
+      cta: "Testez sur AWS (EB + RDS)",
       projectDescription: `
       Ce projet est une API backend développée en Spring Boot qui se concentre 
       sur la gestion sécurisée de crédits d'utilisation d'une application.
