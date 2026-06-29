@@ -251,7 +251,7 @@ function SectionExperiences() {
                 const state = i <= activeCard;
                 const isCurrentCard = i === activeCard;
                 return (
-                  <div className="relative w-full flex flex-row gap-4 mb-5 sm:ml-[10%] ml-[3%]">
+                  <div className="relative w-auto flex flex-row gap-4 mb-5 sm:ml-[10%] ml-[3%]">
                     <div className="flex flex-col items-center flex-shrink-0">
                       <div
                         className={`w-4 h-4 rounded-full mt-2 transition-all duration-300

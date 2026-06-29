@@ -84,7 +84,7 @@ function Header() {
             <p className="lg:text-4xl md:text-xl text-lg highlight">Kévin.J</p>
           </div>
           <div
-            className={`${scrolled ? "lg:w-1/3" : "lg:w-1/2"} w-[stretch] flex flex-row justify-between border-2 border-white rounded sm:mx-3 shadow-[0_0_10px_rgba(168,85,247,0.95)] min-w-[275px] transition-all duration-300`}
+            className={`${scrolled ? "lg:w-1/3" : "lg:w-1/2"} w-[stretch] flex flex-row justify-between border-2 border-white rounded sm:mx-3 shadow-[0_0_10px_rgba(168,85,247,0.95)] transition-all duration-300`}
           >
             {headerTabs.map((tab) => {
               const id = tab.toLowerCase();

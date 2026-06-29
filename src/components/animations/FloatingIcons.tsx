@@ -64,7 +64,7 @@ function FloatingIcons({ techs }: Props) {
           pos.x = maxX;
           vel.x *= -1;
         }
-        if (pos.x <= 0) {
+        if (pos.y <= 0) {
           pos.y = 0;
           vel.y *= -1;
         }
