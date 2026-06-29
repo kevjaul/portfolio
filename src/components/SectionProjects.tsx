@@ -5,7 +5,7 @@ import TechCarousel from "./TechCarousel";
 
 function SectionProjects() {
   const { t } = useTranslation();
-  type Techs = { name: string; subtitle: string; iconUrl: string };
+  type Techs = { name: string; subtitle?: string; iconUrl: string };
   const mainProjectTechs: Techs[] = [
     {
       name: "Spring",
@@ -16,19 +16,16 @@ function SectionProjects() {
     { name: "JUnit", subtitle: "", iconUrl: "logos/junit.svg" },
     {
       name: "Postgre",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
     },
     {
       name: "AWS",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
     },
     {
       name: "Git",
-      subtitle: "",
       iconUrl: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg",
     },
   ];
@@ -36,25 +33,21 @@ function SectionProjects() {
   const crmProjectTechs: Techs[] = [
     {
       name: "PHP",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
     },
     {
       name: "Javascript",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
     },
     {
       name: "Bash",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/4/4b/Bash_Logo_Colored.svg",
     },
     {
       name: "MySQL",
-      subtitle: "",
       iconUrl: "https://icon.icepanel.io/Technology/svg/MySQL.svg",
     },
     {
@@ -68,25 +61,21 @@ function SectionProjects() {
   const metricsProjectTechs: Techs[] = [
     {
       name: "Javascript",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
     },
     {
       name: "Kubernetes",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg",
     },
     {
       name: "Grafana",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/3/3b/Grafana_icon.svg",
     },
     {
       name: "GitLab",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg",
     },
@@ -94,7 +83,6 @@ function SectionProjects() {
   const cryptoProjectTechs: Techs[] = [
     {
       name: "Python",
-      subtitle: "",
       iconUrl:
         "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
     },
@@ -112,7 +100,7 @@ function SectionProjects() {
   return (
     <section
       id={t("sections.projects").toLowerCase()}
-      className="scroll-mt-[100px] [content-visibility:auto]"
+      className="scroll-mt-[100px] [content-visibility:auto] py-10"
     >
       <h1 className="text-6xl highlight font-bold text-center md:mb-0 mb-4">
         {t("sections.projects")}
@@ -128,14 +116,16 @@ function SectionProjects() {
                 cardTitle={t("projects.featuredProject.cardTitle")}
                 cardSubTitle={<TechCarousel techs={mainProjectTechs} />}
                 cardImage="token-api-java.png"
-                ctaRedirect="http://token-api-java-env.eba-cyz3fx3h.eu-west-1.elasticbeanstalk.com/swagger-ui/index.html"
+                ctaRedirect="https://d1aydfl79q48gt.cloudfront.net/swagger-ui/index.html"
                 ctaMessage={
-                  <>
-                    <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent lg:text-5xl md:text-4xl sm:text-5xl text-4xl leading-none">
+                  <p className="indent-0 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.35)_0%,rgba(0,0,0,0.25)_3%,rgba(0,0,0,0.2)_50%,transparent_90%)] pb-4 px-2 overflow-visible">
+                    <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent lg:text-5xl md:text-4xl sm:text-5xl text-4xl">
                       &#x25CF;
                     </span>
-                    {t("projects.featuredProject.cta")} →
-                  </>
+                    <span className="highlight">
+                      {t("projects.featuredProject.cta")} →
+                    </span>
+                  </p>
                 }
                 className="mt-4 max-h-[1000px] lg:max-w-[fit-content] indent-8 text-justify"
                 id="token-api-java"

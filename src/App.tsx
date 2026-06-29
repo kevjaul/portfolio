@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div>
-      <FloatingCircles />{" "}
+      <FloatingCircles />
       <div className="relative z-10">
         <Header />
         <MainContent />

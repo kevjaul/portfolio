@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import TechNameTag from "./TechNameTag";
 
-type Techs = { name: string; subtitle: string; iconUrl: string };
+type Techs = { name: string; subtitle?: string; iconUrl: string };
 
 interface Props {
   techs: Techs[];
@@ -59,7 +59,7 @@ function TechCarousel({ techs }: Props) {
           <TechNameTag
             key={tech.name}
             techLogo={tech.iconUrl}
-            subtitle={tech.subtitle}
+            subtitle={tech.subtitle ? tech.subtitle : ""}
           >
             {tech.name}
           </TechNameTag>

@@ -68,7 +68,7 @@ function Card({
           />
           {ctaRedirect && (
             <a
-              className="absolute z-20 top-0 right-0 bg-black/15 w-full h-full px-2 py-1 rounded-t-lg border-2 border-white/50 text-white font-bold flex justify-end items-end lg:text-3xl md:text-2xl sm:text-3xl text-2xl"
+              className="absolute z-20 top-0 right-0 bg-black/15 w-full h-full px-2 rounded-t-lg border-x-2 border-t-2 border-white/50 text-white font-bold flex justify-end items-end lg:text-3xl md:text-2xl sm:text-3xl text-2xl"
               href={ctaRedirect}
               target="_blank"
             >
